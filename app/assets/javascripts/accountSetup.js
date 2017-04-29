@@ -1,6 +1,6 @@
 // JavaScript Document This will describe the walkthrough procedure for account setup
 /*  jQuery ready function. Specify a function to execute when the DOM is fully loaded.  */
-$(document).on('page:change', function() {
+$(document).on('turbolinks:load', function() {
 	  
 	  var suggestJobType = function(input){
 		  //For this function you will need the following things on your input:
