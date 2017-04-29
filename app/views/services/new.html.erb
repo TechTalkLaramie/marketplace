@@ -5,19 +5,19 @@
         <%= form_for @service do |f|  -%>
             <div class = "module per100 margin-bottom module-input">
                 <span class = "floating-label">Headline</span>
-                <%= f.text_field :headline, :class=> 'medium input-floating-label'%>
+                <%= f.text_field :headline, :class=> 'medium input-floating-label per100'%>
                 <span class = "error-message"><%= @service.errors.messages[:headline].to_sentence %></span>
             </div>
             
             <div class = "module per100 margin-bottom module-input">
                 <span class = "floating-label">Description</span>
-                <%= f.text_field :description, :class=> 'medium input-floating-label'%>
+                <%= f.text_field :description, :class=> 'medium input-floating-label per100'%>
                 <span class = "error-message"><%= @service.errors.messages[:description].to_sentence %></span>
             </div>
             
             <div class = "module per100 margin-bottom padding-right-small module-input input-money">
                 <span class = "floating-label">Price</span>
-                <%= f.text_field :price, :class => 'medium input-floating-label' %>
+                <%= f.text_field :price, :class => 'medium input-floating-label per100' %>
                 <span class = "error-message"><%= @service.errors.messages[:price].to_sentence %></span>
             </div>
             
