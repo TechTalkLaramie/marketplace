@@ -6,15 +6,13 @@
                 <div class = "module per10">
                     <img class = "image-profile-picture" src = "img/goat picture.jpg">
                 </div>
-                
-                <div class = "module per90 padding-left-medium">
-                    <p><%= current_user.about_me %></p>
                 </div>
             </div>
         </div>
         
         <div class = "module padding-medium per33 tab-per100">
-            <h3 class = "margin-bottom">About Ashley</h3>
+            <h3 class = "margin-bottom">About <%= current_user.name.split(" ").first %></h3>
+                <p><%= current_user.about_me %></p><br>
             
             <%= link_to "Create New Service", new_service_path, :class => 'button margin-bottom' %>
             
@@ -28,15 +26,11 @@
             
             <div class = "module-container">
                 <p class = "bold uppercase margin-top padding-bottom-small">Recent postings</p>
-
-                <p class = "bold">Snow Shoveling</p>
-                <p class = "margin-bottom">For 4/30/2017</p>
-                
-                <p class = "bold">Date entry</p>
-                <p class = "margin-bottom">For 5/5/2017</p>
-                
-                <p class = "bold">Pet sitting</p>
-                <p class = "margin-bottom">For 6/2/2017</p>
+                        <% @recent_postings.each do |posting| %>  
+                                <p class="bold"><%= posting.headline %></p>
+                                <p><%= posting.user.name %></p>
+                                <p class="margin-bottom"><%= posting.created_at %></p>
+                        <% end %>
             </div>
             
             <div class = "module-container">
