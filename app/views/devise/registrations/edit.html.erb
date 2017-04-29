@@ -11,13 +11,13 @@
 
 			<div class = "module per100 margin-bottom module-input">
 				<span class = "floating-label">Full Name</span>
-				<%= f.text_field :name, :class=> "medium input-floating-label" %>
+				<%= f.text_field :name, :class=> "medium input-floating-label per100" %>
 			</div>
 			
 			
 			<div class = "module per100 margin-bottom module-input">
 				<span class = "floating-label">E-mail Address</span>
-				<%= f.email_field :email, :class=> "medium input-floating-label" %>
+				<%= f.email_field :email, :class=> "medium input-floating-label per100" %>
 			</div>
 
 
@@ -27,24 +27,24 @@
 
   			<div class = "module per100 margin-bottom module-input">
   				<span class = "floating-label">Latitude</span>
-  				<%= f.text_field :lat, :class=> "medium input-floating-label" %>
+  				<%= f.text_field :lat, :class=> "medium input-floating-label per100" %>
 			</div>
 			
 			
   			<div class = "module per100 margin-bottom module-input">
   				<span class = "floating-label">Longitude</span>
-  				<%= f.text_field :lng, :class=> "medium input-floating-label" %>
+  				<%= f.text_field :lng, :class=> "medium input-floating-label per100" %>
 			</div>
 			
 			
   			<div class = "module per100 margin-bottom module-input">
   				<span class = "floating-label">Phone Number</span>
-  				<%= f.telephone_field :phone, :class=> "medium input-floating-label" %>
+  				<%= f.telephone_field :phone, :class=> "medium input-floating-label per100" %>
 			</div>
 			
   			<div class = "module per100 margin-bottom module-input">
   				<span class = "floating-label">About Me</span>
-  				<%= f.text_area :about_me, :id => "about-me-text", :class=> "medium input-floating-label" %>
+  				<%= f.text_area :about_me, :id => "about-me-text", :class=> "medium input-floating-label per100" %>
 			</div>
 
 
@@ -59,7 +59,7 @@
 			  
     		<div class = "module per100 margin-bottom module-input">
     			<span class = "floating-label">Password <i>(leave blank if you don't want to change it)</i></span>
-    			<%= f.password_field :password, autocomplete: "off" , :class=> "medium input-floating-label"%>
+    			<%= f.password_field :password, autocomplete: "off" , :class=> "medium input-floating-label per100"%>
 			    <% if @minimum_password_length %>
 			      <br />
 			      <em><%= @minimum_password_length %> characters minimum</em>
@@ -71,17 +71,17 @@
 			  
     		<div class = "module per100 margin-bottom module-input">
     			<span class = "floating-label">Password Confirmation</span>
-    			<%= f.password_field :password_confirmation, autocomplete: "off", :class=> "medium input-floating-label" %>
+    			<%= f.password_field :password_confirmation, autocomplete: "off", :class=> "medium input-floating-label per100" %>
   			</div>
 			
     		<div class = "module per100 margin-bottom module-input">
     			<span class = "floating-label">Current Password <i>(we need your current password to confirm your changes)</i></span>
-    			<%= f.password_field :current_password, autocomplete: "off", :class=> "medium input-floating-label" %>
+    			<%= f.password_field :current_password, autocomplete: "off", :class=> "medium input-floating-label per100" %>
   			</div>
 
 
 
-			  <div class="actions text-right margin-top">
+			  <div class="actions text-right margin-top per100">
 			    <%= f.submit "Update" , :class => "button medium", :id => "button-update-edit-profile"%>
 			  </div>
 			<% end %>
