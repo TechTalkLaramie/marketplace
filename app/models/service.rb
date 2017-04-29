@@ -3,5 +3,6 @@ class Service < ApplicationRecord
   validates :price, presence: true
 
   belongs_to :user
+  has_many :orders
   acts_as_mappable through: :user
 end
