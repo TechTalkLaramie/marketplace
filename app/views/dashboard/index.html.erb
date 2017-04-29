@@ -29,6 +29,7 @@
             <div class = "module-container">
                 <p class = "bold uppercase margin-top padding-bottom-small">Recent postings</p>
 
+<<<<<<< HEAD
                 <p class = "bold">Snow Shoveling</p>
                 <p class = "margin-bottom">For 4/30/2017</p>
                 
@@ -75,3 +76,15 @@
 
     </div>
 </section>
+=======
+<h3>Services in my area</h3>
+<%= render 'services/service_list',
+  service_list: current_user.services_in_my_area(50),
+  show_service_provider: true %>
+
+<h3>Services I provide</h3>
+<%= link_to "Create new service", new_service_path %>
+
+<%= render 'services/service_list',
+  service_list: current_user.services %>
+>>>>>>> master

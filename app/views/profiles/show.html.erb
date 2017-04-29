@@ -1,0 +1,4 @@
+<h2><%= @user.email %></h2>
+
+<h3>Services provided by <%= @user.email %></h3>
+<%= render partial: 'services/service_list', object: @user.services %>

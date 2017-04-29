@@ -1,0 +1,19 @@
+<%- show_service_provider ||= false -%>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Price</th>
+    <%- if show_service_provider -%>
+      <th>Service Provider</th>
+    <%- end -%>
+  </tr>
+  <%- service_list.each do |service| -%>
+    <tr>
+      <td><%= service.headline %></td>
+      <td><%= number_to_currency service.price %></td>
+      <%- if show_service_provider -%>
+        <td><%= link_to service.user.email, profile_path(service.user) %></td>
+      <%- end -%>
+    </tr>
+  <%- end -%>
+</table>
