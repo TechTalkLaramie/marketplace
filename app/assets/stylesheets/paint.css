@@ -12,9 +12,11 @@ body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
 	font-weight: 400;
 	font-size: 1em;
 	font-family: 'Dosis', sans-serif;
-	color: #555;
 }
 
+body {
+	color: #555;
+}
 
 /* BASIC ELEMENTS */
 
@@ -101,7 +103,10 @@ form {
 	width: 100%;
 }
 
-input:not([type=submit]),
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=number]
 textarea,
 select {
 	padding: 15px;
@@ -232,7 +237,9 @@ textarea:focus {
 	text-align: right;
 }
 
-
+.inverse {
+	color: white;
+}
 
 
 /****************** SITE BUILDING BLOCKS *****************/
@@ -555,6 +562,15 @@ textarea:focus {
 /*************** YOUR OVERRIDES AND CUSTOMIZATIONS BELOW HERE **************/
 /***************************************************************************/
 
+/***************************************************************************/
+					/*************** HEADER **************/
+/***************************************************************************/
+header.banner {
+	padding: 15px 0px;
+	background-color: #7F00FF;
+}
+					
+
 
 /***************************************************************************/
 					/*************** NAVIGATION **************/
@@ -564,7 +580,7 @@ textarea:focus {
     position: fixed;
     top: 0;
     bottom: 0;
-    left: -30%;
+    right: -30%;
     width: 30%;
     color: white;
     z-index: 10;
