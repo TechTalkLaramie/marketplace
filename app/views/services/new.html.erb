@@ -1,0 +1,23 @@
+<h2>Create a new service</h2>
+
+<%= form_for @service do |f|  -%>
+  <p>
+    <%= f.label :headline %><br/>
+    <%= f.text_field :headline %>
+    <span style="color:red"><%= @service.errors.messages[:headline].to_sentence %></span>
+  </p>
+
+  <p>
+    <%= f.label :description %><br/>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :price, "Price" %><br/>
+    $<%= f.text_field :price %>
+  <span style="color:red"><%= @service.errors.messages[:price].to_sentence %></span>
+  </p>
+
+  <%= submit_tag "Create New Service" %>
+
+<%- end -%>

@@ -1,0 +1,17 @@
+Here's the dashboard
+
+<h3>Services I provide</h3>
+<table>
+  <tr>
+    <th>Headline</th>
+    <th>Price</th>
+  </tr>
+  <%= link_to "Create new service", new_service_path %>
+  <%- current_user.services.each do |service| -%>
+    <tr>
+      <td><%= service.headline %></td>
+      <td><%= number_to_currency service.price %></td>
+    </tr>
+  <%- end -%>
+<table>
+
