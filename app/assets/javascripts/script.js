@@ -42,7 +42,7 @@ $(document).on('turbolinks:load', function() {
      */
     function openSidebar() {
         $('.banner#banner-sidebar').animate({
-            left: 0
+            right: 0
         });
     }
     
@@ -51,7 +51,7 @@ $(document).on('turbolinks:load', function() {
      */
     function closeSidebar() {
         $('.banner#banner-sidebar').animate({
-            left: '-30%'
+            right: '-30%'
         });
     }
 
