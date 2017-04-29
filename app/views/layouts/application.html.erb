@@ -25,34 +25,36 @@
         <header class = "banner">
             <div class = "container">
                 <div class = "module per30">
+                    <div class = "hamburger margin-right">ham</div>
                     <h1>Marketplace</h1>
                 </div>
                 
                 <div class = "module per70 text-right">
                     <%- if current_user -%>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
-                    <%= link_to "Edit Profile", edit_user_registration_path %>
-
+                        <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
+                        <%= link_to "Edit Profile", edit_user_registration_path %>
                     <%- else -%>
-                    <%= link_to "Sign Up", new_user_registration_path %> |
-                    <%= link_to "Login", new_user_session_path %>
+                        <%= link_to "Sign Up", new_user_registration_path %> |
+                        <%= link_to "Login", new_user_session_path %>
                     <%- end -%>
                 </div>
             </div>
         </header>
-        
-        <div class = "hamburger">ham</div>
     
         <section class = "banner" id = "banner-sidebar">
             <div class = "container">
                 <div class = "module per100">
                     <h2 class = "margin-bottom large">Ashley Livingston</h2>
-
+                    
+                    <p><%= link_to "Edit Profile", edit_user_registration_path %></p>
+                    <p><%= link_to "Dashboard", dashboard_path %></p>
                     <p><a href = "post.html">Post gig</a></p>
                     <p><a href = "">Search gigs</a></p>
                     <p><a href = "">Review offers</a></p>
-                
-                    <p class = "margin-top"><a href = "">Log Out</a></p>
+                    
+                    <%- if current_user -%>
+                        <p class = "margin-top"><%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
+                    <%- end -%>
                 </div>
             </div>
         </section>

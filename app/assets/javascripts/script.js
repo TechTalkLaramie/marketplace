@@ -1,4 +1,5 @@
-$(function(){
+$(document).on('turbolinks:load', function() { 
+
     bindEventListeners();
     cssAdjustments();
     
@@ -17,7 +18,7 @@ $(function(){
         $('#post-input-hour').on('focus', function(){
             $('#post-input-fixed').value('');
         });
-    }
+   }
     
     /* 
      * initial css adjustments
@@ -47,6 +48,7 @@ $(function(){
             fontWeight: '700'
         }, 100);
     }
+
 
 });
 

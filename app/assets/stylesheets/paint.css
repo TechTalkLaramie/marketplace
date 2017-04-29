@@ -72,6 +72,8 @@ button,
 	cursor: pointer;
 	display: inline-block;
 	width: auto;
+	font-family: "Dosis";
+	font-size: 1em;
 }
 
 .panel {
@@ -88,6 +90,9 @@ button,
 	margin-right: -4px;
 }
 
+.hamburger {
+	cursor: pointer;
+}
 
 
 
