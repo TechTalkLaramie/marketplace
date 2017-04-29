@@ -105,13 +105,21 @@ input:not([type=submit]),
 select {
 	padding: 15px;
     box-sizing: border-box;
-    color: rgba(255,255,255,.0);
+    color: rgba(0,0,0,.6);
     font-family: "Dosis";
 	border-radius: 0;
 	-webkit-appearance: none;
 	border: 1px solid #ccc;
 	width: 100%;
 	background-color: white;
+}
+
+input.input-money {
+	color: rgba(255,255,255,.0);
+}
+
+input.focus-input.input-money {
+	color: color: rgba(0,0,0,.6);;
 }
 
 select {
