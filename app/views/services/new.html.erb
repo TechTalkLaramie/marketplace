@@ -17,7 +17,7 @@
             
             <div class = "module per100 margin-bottom padding-right-small module-input input-money">
                 <span class = "floating-label">Price</span>
-                <%= f.text_field :price, :class => 'medium input-floating-label', :value => '$ '%>
+                <%= f.text_field :price, :class => 'medium input-floating-label' %>
                 <span class = "error-message"><%= @service.errors.messages[:price].to_sentence %></span>
             </div>
          
