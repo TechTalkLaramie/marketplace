@@ -1,31 +1,12 @@
 Here's the dashboard
 
 <h3>Services in my area</h3>
-<table>
-  <tr>
-    <th>Headline</th>
-    <th>Price</th>
-  </tr>
-  <%- current_user.services_in_my_area(50).each do |service| -%>
-    <tr>
-      <td><%= service.headline %></td>
-      <td><%= number_to_currency service.price %></td>
-    </tr>
-  <%- end -%>
-</table>
+<%= render 'services/service_list',
+  service_list: current_user.services_in_my_area(50),
+  show_service_provider: true %>
 
 <h3>Services I provide</h3>
 <%= link_to "Create new service", new_service_path %>
-<table>
-  <tr>
-    <th>Headline</th>
-    <th>Price</th>
-  </tr>
-  <%- current_user.services.each do |service| -%>
-    <tr>
-      <td><%= service.headline %></td>
-      <td><%= number_to_currency service.price %></td>
-    </tr>
-  <%- end -%>
-</table>
 
+<%= render 'services/service_list',
+  service_list: current_user.services %>
