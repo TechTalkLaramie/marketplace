@@ -22,7 +22,11 @@
                 <p class = "bold uppercase padding-bottom-small">Services I Offer</p>
                 
                 <%- current_user.services.each do |service| -%>
-                    <p><%= service.headline %>, <%= number_to_currency service.price %></p>
+                    <p><%= service.headline %>, <%= number_to_currency service.price %>
+                        <td class= "delete-button">
+                            <br/ class="style-link-after"><%= link_to "Delete", service_path(service), method: :delete %>
+                        </td>
+                    </p>
                 <%- end -%>
             </div>
             
