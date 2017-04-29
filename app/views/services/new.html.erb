@@ -20,6 +20,11 @@
                 <%= f.text_field :price, :class => 'medium input-floating-label per100' %>
                 <span class = "error-message"><%= @service.errors.messages[:price].to_sentence %></span>
             </div>
+            
+            <div class = "module per100 margin-bottom module-input">
+                <span class = "label">Fixed rate?</span>
+                <%= f.check_box :fixed_rate %>
+            </div>
          
           <%= submit_tag "Create New Service", :class => 'button margin-top'%>
 

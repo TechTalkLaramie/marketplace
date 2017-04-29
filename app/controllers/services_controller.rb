@@ -6,7 +6,7 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = current_user.services.build(params[:service].permit([:headline, :description, :price]))
+    @service = current_user.services.build(params[:service].permit([:headline, :description, :fixed_rate, :price]))
 
     if @service.save
       redirect_to '/dashboard'
