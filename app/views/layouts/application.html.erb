@@ -48,7 +48,9 @@
                         <i class = "fa fa-close" aria-hidden = "true"></i>
                     </div>
                     
-                    <h2 class = "margin-top margin-bottom large">Ashley Livingston</h2>
+                    <%- if current_user -%>
+                        <h2 class = "margin-top margin-bottom large"><%= current_user.name %></h2>
+                    <%- end -%>
                     
                     <p><%= link_to "Edit Profile", edit_user_registration_path %></p>
                     <p><%= link_to "Dashboard", dashboard_path %></p>
