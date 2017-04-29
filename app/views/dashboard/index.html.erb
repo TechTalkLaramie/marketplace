@@ -25,7 +25,12 @@
                 <p class = "bold uppercase padding-bottom-small">Services I Offer</p>
 
                 <%- current_user.services.each do |service| -%>
-                  <p id="service_<%= service.id %>"><%= service.headline %>, <%= number_to_currency service.price %>
+                    <p id="service_<%= service.id %>"><%= service.headline %> - <%= number_to_currency service.price %>
+                    <% if service.fixed_rate %>
+                        (Fixed rate)
+                    <% else %>
+                        (Hourly rate)
+                    <% end %>
                         <td class= "delete-button">
                           <br/ class="style-link-after">
                           <%= link_to "Delete", service_path(service), data: { confirm: "Are you sure you want to do that?" }, remote: true, method: :delete %>
@@ -38,7 +43,13 @@
                 <p class = "bold uppercase margin-top padding-bottom-small">Recent postings</p>
 
                         <% @recent_postings.each do |posting| %>
-                                <p class="bold"><%= posting.headline %> - $<%= posting.price %></p>
+                                <p class="bold"><%= posting.headline %> - $<%= posting.price %>
+                                <% if posting.fixed_rate %>
+                                    (Fixed rate)
+                                <% else %>
+                                    (Hourly rate)
+                                <% end %>
+                                </p>
                                 <p><%= posting.user.name %></p>
                                 <p class="margin-bottom"><%= posting.created_at %></p>
                         <% end %>
