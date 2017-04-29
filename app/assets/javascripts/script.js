@@ -26,7 +26,15 @@ $(document).on('turbolinks:load', function() {
      * initial css adjustments
      */
     function cssAdjustments(){
-        $('select').after('<span class = "arrow">&#x25BC;</span>')
+        $('select').after('<span class = "arrow">&#x25BC;</span>');
+        
+        $('.input-floating-label').each(function(){
+            if ($(this).val()) {
+                $(this).addClass('focus-input');
+                $(this).prev('.floating-label').addClass('static-floating-label')
+            }
+        });
+        
     }
 
     /* 

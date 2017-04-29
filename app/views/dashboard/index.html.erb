@@ -1,14 +1,14 @@
 <section class = "banner" id = "banner-dashboard">
     <div class = "container">
         <div class = "module per100 padding-medium">
-            <h3 class = "margin-bottom">Ashley Livingston</h3>
+            <h3 class = "margin-bottom"><%= current_user.name %></h3>
             <div class = "module-container">
                 <div class = "module per10">
                     <img class = "image-profile-picture" src = "img/goat picture.jpg">
                 </div>
                 
                 <div class = "module per90 padding-left-medium">
-                    <p>My name is Ashley Livingston. I'm a web developer out of the New York City area. I specialize in helping students with PHP and Javascript. I own my business and have a master's degree in City Planning</p>
+                    <p><%= current_user.about_me %></p>
                 </div>
             </div>
         </div>
