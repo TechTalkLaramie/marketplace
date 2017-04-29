@@ -7,34 +7,41 @@
 			<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 			  <%= devise_error_messages! %>
 
-			  <div class="field margin-top">
-			    <%= f.label :email %><br />
-			    <%= f.email_field :email, autofocus: true %>
-			  </div>
+
+
+
+			<div class = "module per100 margin-bottom module-input">
+				<span class = "floating-label">E-mail Address</span>
+				<%= f.email_field :email, :class=> "medium input-floating-label" %>
+			</div>
+
 
 			  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 			    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 			  <% end %>
 
-			  <div class="field margin-top">
-			    <%= f.label :lat, "Latitude" %><br/>
-			    <%= f.text_field :lat %>
-			  </div>
+  			<div class = "module per100 margin-bottom module-input">
+  				<span class = "floating-label">Latitude</span>
+  				<%= f.text_field :lat, :class=> "medium input-floating-label" %>
+			</div>
+			
+			
+  			<div class = "module per100 margin-bottom module-input">
+  				<span class = "floating-label">Longitude</span>
+  				<%= f.text_field :lng, :class=> "medium input-floating-label" %>
+			</div>
+			
+			
+  			<div class = "module per100 margin-bottom module-input">
+  				<span class = "floating-label">Phone Number</span>
+  				<%= f.telephone_field :phone, :class=> "medium input-floating-label" %>
+			</div>
+			
+  			<div class = "module per100 margin-bottom module-input">
+  				<span class = "floating-label">About Me</span>
+  				<%= f.text_area :about_me, :id => "about-me-text" %>
+			</div>
 
-			  <div class="field margin-top">
-			    <%= f.label :lng, "Longitude" %><br/>
-			    <%= f.text_field :lng %>
-			  </div>
-			  
-			  <div class="field margin-top">
-			    <%= f.label :phone %><br />
-			    <%= f.telephone_field :phone%>
-			  </div>
-
-			  <div class="field margin-top">
-			    <%= f.label :about_me %><br/>
-			    <%= f.text_area :about_me, :id => "about-me-text" %>
-			  </div>
 
 			  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 			    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
