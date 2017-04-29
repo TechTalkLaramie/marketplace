@@ -66,6 +66,8 @@ $(document).on('turbolinks:load', function() {
             fontSize: '.8em',
             fontWeight: '700'
         }, 100);
+        
+        $(input).addClass('focus-input');
     }
 
 
