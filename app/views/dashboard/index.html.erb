@@ -18,16 +18,17 @@
 
             <h3 class = "margin-bottom">About <%= current_user.name.split(" ").first %></h3>
                 <p><%= current_user.about_me %></p><br>
-            
+
             <%= link_to "Create New Service", new_service_path, :class => 'button margin-bottom' %>
 
             <div class = "module-container">
                 <p class = "bold uppercase padding-bottom-small">Services I Offer</p>
 
                 <%- current_user.services.each do |service| -%>
-                    <p><%= service.headline %>, <%= number_to_currency service.price %>
+                  <p id="service_<%= service.id %>"><%= service.headline %>, <%= number_to_currency service.price %>
                         <td class= "delete-button">
-                            <br/ class="style-link-after"><%= link_to "Delete", service_path(service), method: :delete %>
+                          <br/ class="style-link-after">
+                          <%= link_to "Delete", service_path(service), data: { confirm: "Are you sure you want to do that?" }, remote: true, method: :delete %>
                         </td>
                     </p>
                 <%- end -%>
@@ -36,7 +37,7 @@
             <div class = "module-container">
                 <p class = "bold uppercase margin-top padding-bottom-small">Recent postings</p>
 
-                        <% @recent_postings.each do |posting| %>  
+                        <% @recent_postings.each do |posting| %>
                                 <p class="bold"><%= posting.headline %> - $<%= posting.price %></p>
                                 <p><%= posting.user.name %></p>
                                 <p class="margin-bottom"><%= posting.created_at %></p>
