@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appointment_time: 2017-04-29 13:19:04
+  user_id: 1
+  service_id: 1
+  accepted_at: 2017-04-29 13:19:04
+
+two:
+  appointment_time: 2017-04-29 13:19:04
+  user_id: 1
+  service_id: 1
+  accepted_at: 2017-04-29 13:19:04
