@@ -14,6 +14,9 @@
       <%- if show_service_provider -%>
         <td><%= link_to service.user.email, profile_path(service.user) %></td>
       <%- end -%>
+      <td>
+        <%= link_to "Delete", service_path(service), method: :delete %>
+      </td>
     </tr>
   <%- end -%>
 </table>
