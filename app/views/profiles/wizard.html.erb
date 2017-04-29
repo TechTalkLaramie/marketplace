@@ -1,0 +1,82 @@
+<section class = "banner" id = "banner-accountSetup">
+    <div class = "container" id = "container-accountSetup">
+		<%= form_for(@user, url: submit_wizard_profiles_path) do |f| %>
+		
+			<div class = "module-container align-center">
+				<div class = "module per100 accountSetupWalkthrough self-align-middle text-center padding-large" id = "module-setup-0">
+					<h2>Thanks for signing up!</h2>
+					 <h3>We'd just need a little more info from you.</h3>
+					<br />
+					<p class = "large padding-bottom-small">We'll walk you through it step-by-step</p>
+					<br / >
+					<div id = "nextButton0" class = "margin-top per20 button nextButton">Let's Begin!</div>
+				</div>
+				
+
+				
+				<div class = "module per100 accountSetupWalkthrough self-align-middle text-center padding-large" id = "module-setup-1">
+					<div class ="module-container text-center align-center">
+						<p class = "large padding-bottom-small">What is your full name?</p>
+						<br / >
+					
+						<div class = "module per50 margin-bottom module-input input-money">
+							<span class = "floating-label">Full Name</span>
+							<%= f.text_field :name, :class=> "medium per100 input-floating-label", :id => "input-fullName"%>
+						</div>
+					</div>
+					<div id = "nextButton1" class = "margin-top per20 button nextButton">Next</div>
+					<div id = "step1Text" class = "margin-top per20">Step 1 of 4</div>	
+
+				</div>
+				
+				
+				<div class = "module per100 accountSetupWalkthrough self-align-middle text-center padding-large" id = "module-setup-2">
+					<div class ="module-container text-center align-center">
+						<p class = "large padding-bottom-small">Where are you based?</p>
+						<br / >
+					
+						<div class = "module per50 margin-bottom module-input input-money">
+							<span class = "floating-label">Zip Code</span>
+							<input class = "medium per100 input-floating-label post-input padding-small" type = "text" id = "input-zipCode">
+							<!-- ADD HIDDEN INPUTES FOR LAT AND LONG BASED ON API RESPONCE-->
+						</div>
+					</div>
+					<div id = "nextButton1" class = "margin-top per20 button nextButton">Next</div>
+					<div id = "step1Text" class = "margin-top per20">Step 2 of 4</div>	
+
+				</div>
+				<div class = "module per100 accountSetupWalkthrough self-align-middle text-center padding-large" id = "module-setup-3">
+					<div class ="module-container text-center align-center">
+						<br>
+						<p class = "large padding-bottom-small">What is your phone number?</p>
+						<div class = "module-container align-center">
+							<div class = "module per50 margin-bottom align-center module-input input-money">
+		                        <span class = "floating-label">xxx-xxx-xxxx</span>
+								<%= f.telephone_field :phone, :class=> "medium per100 input-floating-label" %>
+							</div>
+							<br />
+						</div>
+					</div>
+					<div id = "nextButton2" class = "margin-top per20 button nextButton">Next</div>
+					<div id = "step2Text" class = "margin-top per20">Step 3 of 4</div>
+				</div>
+			
+				<div class = "module per100 accountSetupWalkthrough self-align-middle text-center padding-large" id = "module-setup-4">
+					<div class ="module-container text-center align-center">
+						<p class = "large">Would you like to upload a photo?</p>
+						<br />
+						(Just click next if you'd like to upload one later)
+						<br />
+						<input form = "form-accountSetup" type = "file" name = "photo" id = "input-photoFile" class = "margin-top per50">
+						<br />
+					</div>
+	  			  <div class="actions text-right margin-top">
+	  			    <%= f.submit "Finish!" , :class => "button medium", :id => "wizard-update-profile"%>
+	  			  </div>
+					
+					<div id = "step4Text" class = "margin-top per20">Step 4 of 4</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</section>

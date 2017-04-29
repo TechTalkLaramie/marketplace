@@ -1,0 +1,9 @@
+Create order appointment for <%= @service.headline %>
+
+<%= form_for(@order, url: service_orders_path(@service)) do |f| -%>
+  <p>
+    <%= f.label :appointment_time %>
+    <%= f.datetime_field :appointment_time %>
+  </p>
+  <%= submit_tag "Place Order" %>
+<%- end -%>

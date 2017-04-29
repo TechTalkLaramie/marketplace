@@ -12,9 +12,11 @@ body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
 	font-weight: 400;
 	font-size: 1em;
 	font-family: 'Dosis', sans-serif;
-	color: #555;
 }
 
+body {
+	color: #555;
+}
 
 /* BASIC ELEMENTS */
 
@@ -105,7 +107,11 @@ form {
 	width: 100%;
 }
 
-input:not([type=submit]),
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+input[type=tel],
 textarea,
 select {
 	padding: 15px;
@@ -115,8 +121,9 @@ select {
 	border-radius: 0;
 	-webkit-appearance: none;
 	border: 1px solid #ccc;
-	width: 100%;
+	align-self:stretch;
 	background-color: white;
+	font-size: 1em;
 }
 
 input.input-money {
@@ -124,7 +131,7 @@ input.input-money {
 }
 
 input.focus-input.input-money {
-	color: color: rgba(0,0,0,.6);;
+	color: rgba(0,0,0,.6);
 }
 
 select {
@@ -141,9 +148,9 @@ select {
 	font-size: .8em;
 }
 
-input:focus,
-input.focus-input,
-textarea:focus {
+input.input-floating-label:focus,
+input.input-floating-label.focus-input,
+textarea.input-floating-label:focus {
     padding-top: 25px;
     padding-bottom: 5px;
     color: #555;
@@ -236,7 +243,9 @@ textarea:focus {
 	text-align: right;
 }
 
-
+.inverse {
+	color: white;
+}
 
 
 /****************** SITE BUILDING BLOCKS *****************/
@@ -250,8 +259,8 @@ textarea:focus {
 .container-extender,
 .container-inner,
 .module-container {
-    display: -webkit-box;  
-    display: -ms-flexbox;  
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: -webkit-flex;
 	display: flex;
 	flex-direction: row;
@@ -279,7 +288,7 @@ textarea:focus {
 	flex: 0 1 auto;
 }
 
-.module {
+.module, input {
 	flex: 0 1 auto;
 	box-sizing: border-box;
 }
@@ -429,11 +438,11 @@ textarea:focus {
 
 
 /**
-*** All padding values are inside the box - use to create space between content 
+*** All padding values are inside the box - use to create space between content
 *** and module edge.  Module width will not change with padding.
 ***
 ***
-*** Use nested modules to create space between side-by-side elements with 
+*** Use nested modules to create space between side-by-side elements with
 *** background colors or images
 **/
 
@@ -559,6 +568,73 @@ textarea:focus {
 /*************** YOUR OVERRIDES AND CUSTOMIZATIONS BELOW HERE **************/
 /***************************************************************************/
 
+.typewriter {
+	width: auto;
+	position: relative;
+}
+
+.typewriter h2.text1 {
+	opacity: 0;
+	position: relative;
+	overflow: hidden; /* Ensures the content is not revealed until the animation */
+	border-right: .15em solid orange; /* The typwriter cursor */
+	width: auto;
+	white-space: nowrap; /* Keeps the content on a single line */
+	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+	animation:
+	typing 3.5s 1s steps(40, end) 2 alternate,
+	blink-caret .5s step-end infinite;
+}
+
+.typewriter h2.text2 {
+	position: relative;
+	transform:  translateY(-100%);
+	opacity: 0;
+	overflow: hidden; /* Ensures the content is not revealed until the animation */
+	border-right: .15em solid orange; /* The typwriter cursor */
+	width: auto;
+	white-space: nowrap; /* Keeps the content on a single line */
+	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+	animation:
+	typingagain 3.5s 8s steps(40, start) 1 forwards,
+	blink-caret .4s step-end infinite;
+}
+
+
+
+/* The typing effect */
+@keyframes typing {
+    0% { width: 0; opacity: 0;  }
+    20% { width: 0; opacity: 1;}
+    80% { width: 100%; opacity: 1; }
+    100% { width: 100%; opacity: 1;}
+}
+
+/* The typing effect */
+@keyframes typingagain {
+  0% { width: 0; opacity: 0;  }
+  20% { width: 0; opacity: 1;}
+  80% { width: 100%; opacity: 1; }
+  100% { width: 100%; opacity: 1;}
+}
+
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+
+/***************************************************************************/
+					/*************** HEADER **************/
+/***************************************************************************/
+header.banner {
+	padding: 15px 0px;
+	background-color: #7F00FF;
+}
+
+
 
 /***************************************************************************/
 					/*************** NAVIGATION **************/
@@ -568,7 +644,7 @@ textarea:focus {
     position: fixed;
     top: 0;
     bottom: 0;
-    left: -30%;
+    right: -30%;
     width: 30%;
     color: white;
     z-index: 10;
@@ -582,7 +658,7 @@ textarea:focus {
 /***************************************************************************/
 					/*************** DASHBOARD **************/
 /***************************************************************************/
-					
+
 .banner#banner-dashboard {
 	background-color: #e5e5e5;
 }
@@ -632,13 +708,13 @@ textarea:focus {
 				/*************** MOBILE STYLE **************/
 /***************************************************************************/
 @media (min-width: 1400px) {
-	
+
 }
 
 @media (max-width: 1024px) {
 	.per10.no-collapse,
 	.per20.no-collapse,
-	.per25.no-collapse, 
+	.per25.no-collapse,
 	.per30.no-collapse,
 	.per40.no-collapse,
 	.per50.no-collapse,
@@ -649,7 +725,7 @@ textarea:focus {
 	.per90.no-collapse {
 		width: initial;
 	}
-	
+
 	.tab-per10 {
 		width: 10%;
 	}
@@ -701,67 +777,67 @@ textarea:focus {
 	.tab-per100 {
 		width: 100%;
 	}
-	
-	
+
+
 	.tab-order-1 {
 		order: 1;
 	}
-	
+
 	.tab-order-2 {
 		order: 2;
 	}
-	
+
 	.tab-order-3 {
 		order: 3;
 	}
-	
+
 	.tab-order-4 {
 		order: 4;
 	}
-	
+
 	.tab-order-5 {
 		order: 5;
 	}
-	
+
 	.tab-order-6 {
 		order: 6;
 	}
-	
+
 	.tab-order-7 {
 		order: 7;
 	}
-	
+
 	.tab-order-8 {
 		order: 8;
 	}
-	
+
 	.tab-order-9 {
 		order: 9;
 	}
-	
+
 	.tab-order-10 {
 		order: 10;
 	}
 }
-	
-	
+
+
 @media (max-width: 768px) {
 	.banner {
 		padding: 50px 0px;
 	}
-	
+
 	.container {
 		width: 95%;
 	}
-	
+
 	.module {
 		margin-bottom: 30px;
 	}
-	
+
 	.module:last-of-type {
 		margin-bottom: 0;
 	}
-	
+
 	.per10,
 	.per20,
 	.per25,
@@ -777,8 +853,8 @@ textarea:focus {
 	.per100 {
 		width: 100%;
 	}
-	
-	
+
+
 	.mob-per10 {
 		width: 10%;
 	}
@@ -830,75 +906,75 @@ textarea:focus {
 	.mob-per100 {
 		width: 100%;
 	}
-	
-	
+
+
 	.mob-order-1 {
 		order: 1;
 	}
-	
+
 	.mob-order-2 {
 		order: 2;
 	}
-	
+
 	.mob-order-3 {
 		order: 3;
 	}
-	
+
 	.mob-order-4 {
 		order: 4;
 	}
-	
+
 	.mob-order-5 {
 		order: 5;
 	}
-	
+
 	.mob-order-6 {
 		order: 6;
 	}
-	
+
 	.mob-order-7 {
 		order: 7;
 	}
-	
+
 	.mob-order-8 {
 		order: 8;
 	}
-	
+
 	.mob-order-9 {
 		order: 9;
 	}
-	
+
 	.mob-order-10 {
 		order: 10;
 	}
-	
-	
+
+
 	/* OPTIONAL, TO ENSURE EVERY ELEMENT IS CENTERED */
 	.text-left,
 	.text-right {
 		text-align: center;
 	}
-	
+
 	.padding-left-mini,
 	.padding-left-small,
 	.padding-left-medium,
 	.padding-left-large {
 		padding-left: 0;
 	}
-	
+
 	.padding-right-mini,
 	.padding-right-small,
 	.padding-right-medium,
 	.padding-right-large {
 		padding-right: 0;
 	}
-	
+
 	.margin-left {
 		margin-left: 0;
 	}
-	
+
 	.margin-right {
 		margin-right: 0;
-	}	
+	}
 }
 
