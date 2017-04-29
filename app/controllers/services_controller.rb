@@ -14,5 +14,10 @@ class ServicesController < ApplicationController
       render :new
     end
   end
+  def destroy
+    @service = Service.find(params[:id])
+    @service.destroy
+    redirect_to '/dashboard'
+  end
 
 end
