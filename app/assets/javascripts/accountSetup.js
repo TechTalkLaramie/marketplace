@@ -4,24 +4,14 @@ $(document).ready(
 	
   /* This is the function that will get executed after the DOM is fully loaded */
   function () {
-	  //this needs to be expanded
-	  var lexiconOfJobs = ["dog walker", "dog sitter", "pet sitter", "babysitter", "petsitter", "dog groomer", "snow removal"]
-	  //Hide all the Divs
-	  $('.accountSetupWalkthrough').hide();
-	  //The show the first question
-	  $('#module-setup-0').show("slow");
-	  //initialize an empty array for current suggestions used in determining job type below
-	  var currentSuggestions =  []
-	  //if User starts typing in the jobType input box, then give him/her up to 5 suggestions. Perhaps these can be sorted in the lexicon by popularity?
-	  $("#input-jobType").on("input", function(){
-		  //capture the text and store it
-		  var enteredjobTypeText = $(this).val()
+	  
+	  var suggestJobType = function(input){
 		  //initialize the number of current suggestions to 0
 		  var i = 0 
 		  //loop through the lexicon array, and grab the first 5 that match what the user is typing
 		  $.each(lexiconOfJobs,function(index, value){
 			  //if the entered text matches a value in the array of all possible values, suggest it. Don't append it if it already exists
-			  if(value.includes(enteredjobTypeText.toLowerCase()) && $.inArray(value, currentSuggestions) == -1){
+			  if(value.includes(input.toLowerCase()) && $.inArray(value, currentSuggestions) == -1){
 				  //append it to the suggestions list
 				  $('#jobSuggestions').append("<option value='" + value + "'>");
 				  i += 1
@@ -34,6 +24,21 @@ $(document).ready(
 			  }
 		 
 		  })
+	  }
+	  
+	  //this needs to be expanded
+	  var lexiconOfJobs = ["dog walker", "dog sitter", "pet sitter", "babysitter", "petsitter", "dog groomer", "snow removal"]
+	  //Hide all the Divs
+	  $('.accountSetupWalkthrough').hide();
+	  //The show the first question
+	  $('#module-setup-0').show("slow");
+	  //initialize an empty array for current suggestions used in determining job type below
+	  var currentSuggestions =  []
+	  //if User starts typing in the jobType input box, then give him/her up to 5 suggestions. Perhaps these can be sorted in the lexicon by popularity?
+	  $(".input-jobType").on("input", function(){
+		  //capture the text and store it
+		  var enteredjobTypeText = $(this).val()
+		  suggestJobType(enteredjobTypeText)
 	  })
 	  
 	  //If you click the next button, hide the current div and show the next one.
