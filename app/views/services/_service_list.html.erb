@@ -1,5 +1,11 @@
 <%- show_service_provider ||= false -%>
 <table>
+  <style>
+    .delete{
+      text-decoration: underline;
+      color:Blue;
+    }
+  </style>
   <tr>
     <th>Title</th>
     <th>Price</th>
@@ -15,7 +21,7 @@
         <td><%= link_to service.user.email, profile_path(service.user) %></td>
       <%- end -%>
       <%- if service.user == current_user -%>
-      <td>
+      <td class= "delete">
         <%= link_to "Delete", service_path(service), method: :delete %>
       </td>
       <%- end -%>
