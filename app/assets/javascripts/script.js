@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
         
         $('.close').on('click', closeSidebar);
 
-        $('input.input-floating-label').on('focus', floatLabel);
+        $('.input-floating-label').on('focus', floatLabel);
 
         $('#post-input-fixed').on('focus', function(){
             $('#post-input-hour').value('');
