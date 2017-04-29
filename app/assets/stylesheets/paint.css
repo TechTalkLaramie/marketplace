@@ -90,7 +90,7 @@ button,
 	margin-right: -4px;
 }
 
-.hamburger {
+.hamburger, .close {
 	cursor: pointer;
 }
 

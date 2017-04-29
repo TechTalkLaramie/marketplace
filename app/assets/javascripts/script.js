@@ -8,6 +8,8 @@ $(document).on('turbolinks:load', function() {
      */
     function bindEventListeners() {
         $('.hamburger').on('click', openSidebar);
+        
+        $('.close').on('click', closeSidebar);
 
         $('input.input-floating-label').on('focus', floatLabel);
 
@@ -33,6 +35,15 @@ $(document).on('turbolinks:load', function() {
     function openSidebar() {
         $('.banner#banner-sidebar').animate({
             left: 0
+        });
+    }
+    
+    /* 
+     * slides sidebar out to left
+     */
+    function closeSidebar() {
+        $('.banner#banner-sidebar').animate({
+            left: '-30%'
         });
     }
 
