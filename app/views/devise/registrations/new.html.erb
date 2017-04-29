@@ -7,7 +7,7 @@
 
         <div class = "module per100 margin-bottom module-input">
             <span class = "floating-label">Email</span>
-            <%= f.text_field :email, :class=> 'medium input-floating-label'%>
+            <%= f.text_field :email, :class=> 'per100 medium input-floating-label'%>
         </div>
 
         <div class = "module per100 margin-bottom module-input">
@@ -16,12 +16,12 @@
                     (<%= @minimum_password_length %> characters minimum)
                 <% end %>
             </span>
-            <%= f.password_field :password, autocomplete: "off", :class=> 'medium input-floating-label' %>
+            <%= f.password_field :password, autocomplete: "off", :class=> 'per100 medium input-floating-label' %>
         </div>
         
         <div class = "module per100 margin-bottom module-input">
             <span class = "floating-label">Password Confirmation</span>
-            <%= f.password_field :password_confirmation, autocomplete: "off", :class=> 'medium input-floating-label' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", :class=> 'per100 medium input-floating-label' %>
         </div>
 
         <%= f.submit "Sign up", :class => 'button'%>

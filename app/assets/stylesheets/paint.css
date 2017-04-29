@@ -593,7 +593,7 @@ textarea.input-floating-label:focus {
 	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
 	animation: 
 	typingagain 3.5s 8s steps(40, start) 1 forwards,
-	blink-caret .5s step-end infinite;
+	blink-caret .4s step-end infinite;
 }
 
 
