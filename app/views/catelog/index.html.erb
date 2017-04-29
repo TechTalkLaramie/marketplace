@@ -1,0 +1,16 @@
+<h3>Gig Catelog</h3>
+
+<table>
+	<tr>
+		<th>Gig Headline</th>
+		<th>Gig Provider</th>
+		<th>Gig Price</th>
+	</tr>
+	<%- Service.all.each do |service| -%>
+		<tr>
+		<td><%= link_to service.headline, show_service_path(service) %></td>
+		<td><%= service.user.name %></td>
+		<td><%= number_to_currency(service.price) %></td>
+	</tr>
+	<%- end -%>
+</table>
