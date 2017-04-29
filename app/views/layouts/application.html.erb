@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
+    <!-- META DATA -->
     <title>Marketplace</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-	<script src="https://use.fontawesome.com/ba4ae401ed.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700" rel="stylesheet">
-  </head>
 
-  <body>
-    <header>
-      <h1>Marketplace</h1>
-      <%- if current_user -%>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
-        <%= link_to "Edit Profile", edit_user_registration_path %>
 
-      <%- else -%>
-        <%= link_to "Sign Up", new_user_registration_path %> |
-        <%= link_to "Login", new_user_session_path %>
-      <%- end -%>
-    </header>
-    <%= yield %>
-  </body>
+    <!-- FONTS -->
+    <script src="https://use.fontawesome.com/ba4ae401ed.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700" rel="stylesheet">
+
+    <!-- STYLES -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    </head>
+
+    <body>
+        <header class = "banner">
+            <div class = "container">
+                <div class = "module per30">
+                    <h1>Marketplace</h1>
+                </div>
+                
+                <div class = "module per70 text-right">
+                    <%- if current_user -%>
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
+                    <%= link_to "Edit Profile", edit_user_registration_path %>
+
+                    <%- else -%>
+                    <%= link_to "Sign Up", new_user_registration_path %> |
+                    <%= link_to "Login", new_user_session_path %>
+                    <%- end -%>
+                </div>
+            </div>
+        </header>
+
+        <%= yield %>
+    </body>
 </html>
