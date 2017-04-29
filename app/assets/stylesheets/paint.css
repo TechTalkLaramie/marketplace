@@ -131,7 +131,7 @@ input.input-money {
 }
 
 input.focus-input.input-money {
-	color: color: rgba(0,0,0,.6);;
+	color: color: rgba(0,0,0,.6);
 }
 
 select {
@@ -259,8 +259,8 @@ textarea.input-floating-label:focus {
 .container-extender,
 .container-inner,
 .module-container {
-    display: -webkit-box;  
-    display: -ms-flexbox;  
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: -webkit-flex;
 	display: flex;
 	flex-direction: row;
@@ -438,11 +438,11 @@ textarea.input-floating-label:focus {
 
 
 /**
-*** All padding values are inside the box - use to create space between content 
+*** All padding values are inside the box - use to create space between content
 *** and module edge.  Module width will not change with padding.
 ***
 ***
-*** Use nested modules to create space between side-by-side elements with 
+*** Use nested modules to create space between side-by-side elements with
 *** background colors or images
 **/
 
@@ -581,7 +581,7 @@ textarea.input-floating-label:focus {
 	width: auto;
 	white-space: nowrap; /* Keeps the content on a single line */
 	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-	animation: 
+	animation:
 	typing 3.5s 1s steps(40, end) 2 alternate,
 	blink-caret .5s step-end infinite;
 }
@@ -595,7 +595,7 @@ textarea.input-floating-label:focus {
 	width: auto;
 	white-space: nowrap; /* Keeps the content on a single line */
 	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-	animation: 
+	animation:
 	typingagain 3.5s 8s steps(40, start) 1 forwards,
 	blink-caret .4s step-end infinite;
 }
@@ -633,7 +633,7 @@ header.banner {
 	padding: 15px 0px;
 	background-color: #7F00FF;
 }
-					
+
 
 
 /***************************************************************************/
@@ -658,7 +658,7 @@ header.banner {
 /***************************************************************************/
 					/*************** DASHBOARD **************/
 /***************************************************************************/
-					
+
 .banner#banner-dashboard {
 	background-color: #e5e5e5;
 }
@@ -708,13 +708,13 @@ header.banner {
 				/*************** MOBILE STYLE **************/
 /***************************************************************************/
 @media (min-width: 1400px) {
-	
+
 }
 
 @media (max-width: 1024px) {
 	.per10.no-collapse,
 	.per20.no-collapse,
-	.per25.no-collapse, 
+	.per25.no-collapse,
 	.per30.no-collapse,
 	.per40.no-collapse,
 	.per50.no-collapse,
@@ -725,7 +725,7 @@ header.banner {
 	.per90.no-collapse {
 		width: initial;
 	}
-	
+
 	.tab-per10 {
 		width: 10%;
 	}
@@ -777,67 +777,67 @@ header.banner {
 	.tab-per100 {
 		width: 100%;
 	}
-	
-	
+
+
 	.tab-order-1 {
 		order: 1;
 	}
-	
+
 	.tab-order-2 {
 		order: 2;
 	}
-	
+
 	.tab-order-3 {
 		order: 3;
 	}
-	
+
 	.tab-order-4 {
 		order: 4;
 	}
-	
+
 	.tab-order-5 {
 		order: 5;
 	}
-	
+
 	.tab-order-6 {
 		order: 6;
 	}
-	
+
 	.tab-order-7 {
 		order: 7;
 	}
-	
+
 	.tab-order-8 {
 		order: 8;
 	}
-	
+
 	.tab-order-9 {
 		order: 9;
 	}
-	
+
 	.tab-order-10 {
 		order: 10;
 	}
 }
-	
-	
+
+
 @media (max-width: 768px) {
 	.banner {
 		padding: 50px 0px;
 	}
-	
+
 	.container {
 		width: 95%;
 	}
-	
+
 	.module {
 		margin-bottom: 30px;
 	}
-	
+
 	.module:last-of-type {
 		margin-bottom: 0;
 	}
-	
+
 	.per10,
 	.per20,
 	.per25,
@@ -853,8 +853,8 @@ header.banner {
 	.per100 {
 		width: 100%;
 	}
-	
-	
+
+
 	.mob-per10 {
 		width: 10%;
 	}
@@ -906,75 +906,75 @@ header.banner {
 	.mob-per100 {
 		width: 100%;
 	}
-	
-	
+
+
 	.mob-order-1 {
 		order: 1;
 	}
-	
+
 	.mob-order-2 {
 		order: 2;
 	}
-	
+
 	.mob-order-3 {
 		order: 3;
 	}
-	
+
 	.mob-order-4 {
 		order: 4;
 	}
-	
+
 	.mob-order-5 {
 		order: 5;
 	}
-	
+
 	.mob-order-6 {
 		order: 6;
 	}
-	
+
 	.mob-order-7 {
 		order: 7;
 	}
-	
+
 	.mob-order-8 {
 		order: 8;
 	}
-	
+
 	.mob-order-9 {
 		order: 9;
 	}
-	
+
 	.mob-order-10 {
 		order: 10;
 	}
-	
-	
+
+
 	/* OPTIONAL, TO ENSURE EVERY ELEMENT IS CENTERED */
 	.text-left,
 	.text-right {
 		text-align: center;
 	}
-	
+
 	.padding-left-mini,
 	.padding-left-small,
 	.padding-left-medium,
 	.padding-left-large {
 		padding-left: 0;
 	}
-	
+
 	.padding-right-mini,
 	.padding-right-small,
 	.padding-right-medium,
 	.padding-right-large {
 		padding-right: 0;
 	}
-	
+
 	.margin-left {
 		margin-left: 0;
 	}
-	
+
 	.margin-right {
 		margin-right: 0;
-	}	
+	}
 }
 
