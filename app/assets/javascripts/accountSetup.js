@@ -77,5 +77,21 @@ $(document).on('turbolinks:load', function() {
 		  	divToShow.show()
 		  }
 	  });
-  }
-);
+	 
+	  //OK, Down here I am going to try to incorporate the https://developers.google.com/places/web-service/autocomplete API
+	  $('#input-zipCode').on("input", function(){
+		  var currentInput = $(this).val()
+	  	//AJAX
+		  var APIkey = "AIzaSyCWXcDHgoQTmXFRjFwzrn2g1jBmbviwPaA"
+		  //Example:
+		  //https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Vict&types=geocode&language=fr&key=YOUR_API_KEY
+		  var googleAPIURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + currentInput + "&types=geocode&language=en&key=" + APIkey
+		  if (currentInput.length > 4){
+			  var responce = $.ajax({
+			    url: googleAPIURL,
+			  }).done(function(data) {
+			    console.log(data)
+			  });
+		  }
+	  })
+ });
