@@ -27,7 +27,7 @@
             <div class = "module-container">
                 <p class = "bold uppercase margin-top padding-bottom-small">Recent postings</p>
                         <% @recent_postings.each do |posting| %>  
-                                <p class="bold"><%= posting.headline %></p>
+                                <p class="bold"><%= posting.headline %> - $<%= posting.price %></p>
                                 <p><%= posting.user.name %></p>
                                 <p class="margin-bottom"><%= posting.created_at %></p>
                         <% end %>
