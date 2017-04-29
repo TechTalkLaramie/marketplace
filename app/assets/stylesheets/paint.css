@@ -72,6 +72,8 @@ button,
 	cursor: pointer;
 	display: inline-block;
 	width: auto;
+	font-family: "Dosis";
+	font-size: 1em;
 }
 
 .panel {
@@ -88,6 +90,9 @@ button,
 	margin-right: -4px;
 }
 
+.hamburger, .close {
+	cursor: pointer;
+}
 
 
 
@@ -97,16 +102,25 @@ form {
 }
 
 input:not([type=submit]),
+textarea,
 select {
 	padding: 15px;
     box-sizing: border-box;
-    color: rgba(255,255,255,.0);
+    color: rgba(0,0,0,.6);
     font-family: "Dosis";
 	border-radius: 0;
 	-webkit-appearance: none;
 	border: 1px solid #ccc;
 	width: 100%;
 	background-color: white;
+}
+
+input.input-money {
+	color: rgba(255,255,255,.0);
+}
+
+input.focus-input.input-money {
+	color: color: rgba(0,0,0,.6);;
 }
 
 select {
@@ -124,7 +138,8 @@ select {
 }
 
 input:focus,
-.focus-input {
+input.focus-input,
+textarea:focus {
     padding-top: 25px;
     padding-bottom: 5px;
     color: #555;
@@ -144,6 +159,13 @@ input:focus,
     top: 15px;
     opacity: .7;
     color: #333;
+}
+
+.floating-label.static-floating-label {
+    top: 5px;
+    opacity: 1;
+    font-size: .8em;
+    font-weight: 700;
 }
 
 

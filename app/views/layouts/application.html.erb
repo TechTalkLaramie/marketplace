@@ -1,27 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
+    <!-- META DATA -->
     <title>Marketplace</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-	<script src="https://use.fontawesome.com/ba4ae401ed.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700" rel="stylesheet">
-  </head>
 
-  <body>
-    <header>
-      <h1>Marketplace</h1>
-      <%- if current_user -%>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
-        <%= link_to "Edit Profile", edit_user_registration_path %>
 
-      <%- else -%>
-        <%= link_to "Sign Up", new_user_registration_path %> |
-        <%= link_to "Login", new_user_session_path %>
-      <%- end -%>
-    </header>
-    <%= yield %>
-  </body>
+    <!-- FONTS -->
+    <script src="https://use.fontawesome.com/ba4ae401ed.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700" rel="stylesheet">
+
+    <!-- STYLES -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    </head>
+
+    <body>
+        <header class = "banner">
+            <div class = "container">
+                <div class = "module per30">
+                    <div class = "hamburger margin-right"><i class = "fa fa-bars" aria-hidden = "true"></i></div>
+                    <h1>Marketplace</h1>
+                </div>
+                
+                <div class = "module per70 text-right">
+                    <%- if current_user -%>
+                        <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
+                        <%= link_to "Edit Profile", edit_user_registration_path %>
+                    <%- else -%>
+                        <%= link_to "Sign Up", new_user_registration_path %> |
+                        <%= link_to "Login", new_user_session_path %>
+                    <%- end -%>
+                </div>
+            </div>
+        </header>
+    
+        <section class = "banner" id = "banner-sidebar">
+            <div class = "container">
+                <div class = "module per100">
+                    <div class = "close per100">
+                        <i class = "fa fa-close" aria-hidden = "true"></i>
+                    </div>
+                    
+                    <%- if current_user -%>
+                        <h2 class = "margin-top margin-bottom large"><%= current_user.name %></h2>
+                    <%- end -%>
+                    
+                    <p><%= link_to "Edit Profile", edit_user_registration_path %></p>
+                    <p><%= link_to "Dashboard", dashboard_path %></p>
+                    <p><a href = "post.html">Post gig</a></p>
+                    <p><a href = "">Search gigs</a></p>
+                    <p><a href = "">Review offers</a></p>
+                    
+                    <%- if current_user -%>
+                        <p class = "margin-top"><%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
+                    <%- end -%>
+                </div>
+            </div>
+        </section>
+
+        <%= yield %>
+    </body>
 </html>

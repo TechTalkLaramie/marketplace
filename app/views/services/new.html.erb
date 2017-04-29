@@ -1,23 +1,28 @@
-<h2>Create a new service</h2>
+<section class = "banner">
+    <div class = "container">
+        <h2 class = "large margin-bottom">Create a new service</h2>
 
-<%= form_for @service do |f|  -%>
-  <p>
-    <%= f.label :headline %><br/>
-    <%= f.text_field :headline %>
-    <span style="color:red"><%= @service.errors.messages[:headline].to_sentence %></span>
-  </p>
+        <%= form_for @service do |f|  -%>
+            <div class = "module per100 margin-bottom module-input">
+                <span class = "floating-label">Headline</span>
+                <%= f.text_field :headline, :class=> 'medium input-floating-label'%>
+                <span class = "error-message"><%= @service.errors.messages[:headline].to_sentence %></span>
+            </div>
+            
+            <div class = "module per100 margin-bottom module-input">
+                <span class = "floating-label">Description</span>
+                <%= f.text_field :description, :class=> 'medium input-floating-label'%>
+                <span class = "error-message"><%= @service.errors.messages[:description].to_sentence %></span>
+            </div>
+            
+            <div class = "module per100 margin-bottom padding-right-small module-input input-money">
+                <span class = "floating-label">Price</span>
+                <%= f.text_field :price, :class => 'medium input-floating-label', :value => '$ '%>
+                <span class = "error-message"><%= @service.errors.messages[:price].to_sentence %></span>
+            </div>
+         
+          <%= submit_tag "Create New Service", :class => 'button margin-top'%>
 
-  <p>
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.label :price, "Price" %><br/>
-    $<%= f.text_field :price %>
-  <span style="color:red"><%= @service.errors.messages[:price].to_sentence %></span>
-  </p>
-
-  <%= submit_tag "Create New Service" %>
-
-<%- end -%>
+        <%- end -%>
+    </div>
+</section>

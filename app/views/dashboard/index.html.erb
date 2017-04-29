@@ -1,12 +1,77 @@
-Here's the dashboard
+<section class = "banner" id = "banner-dashboard">
+    <div class = "container">
+        <div class = "module per100 padding-medium">
+            <h3 class = "margin-bottom"><%= current_user.name %></h3>
+            <div class = "module-container">
+                <div class = "module per10">
+                    <img class = "image-profile-picture" src = "img/goat picture.jpg">
+                </div>
+                
+                <div class = "module per90 padding-left-medium">
+                    <p><%= current_user.about_me %></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class = "module padding-medium per33 tab-per100">
+            <h3 class = "margin-bottom">About Ashley</h3>
+            
+            <%= link_to "Create New Service", new_service_path, :class => 'button margin-bottom' %>
+            
+            <div class = "module-container">
+                <p class = "bold uppercase padding-bottom-small">Services I Offer</p>
+                
+                <%- current_user.services.each do |service| -%>
+                    <p><%= service.headline %>, <%= number_to_currency service.price %></p>
+                <%- end -%>
+            </div>
+            
+            <div class = "module-container">
+                <p class = "bold uppercase margin-top padding-bottom-small">Recent postings</p>
 
-<h3>Services in my area</h3>
-<%= render 'services/service_list',
-  service_list: current_user.services_in_my_area(50),
-  show_service_provider: true %>
+                <p class = "bold">Snow Shoveling</p>
+                <p class = "margin-bottom">For 4/30/2017</p>
+                
+                <p class = "bold">Date entry</p>
+                <p class = "margin-bottom">For 5/5/2017</p>
+                
+                <p class = "bold">Pet sitting</p>
+                <p class = "margin-bottom">For 6/2/2017</p>
+            </div>
+            
+            <div class = "module-container">
+                <p class = "bold uppercase padding-bottom-small">Reviews</p>
+            </div>
+        </div>
+        
+        <div class = "module per33 tab-per50 padding-medium">
+            <h3 class = "margin-bottom">Upcoming gigs and hires</h3>
+            
+            <div class = "panel-notification gig">
+                <p class = "panel-title bold">Snow Shoveling</p>
+                <span class = "panel-cost bold">$30</span>
+                <p class = "panel-contact">On 4/29/2017 for Lenore Kubie</p>
+                <p class = "panel-description padding-top-small">Shoveling for Lenore</p>
+            </div>
+            
+            <div class = "panel-notification hire">
+                <p class = "panel-title bold">Data Entry</p>
+                <span class = "panel-cost bold">$25/hr</span>
+                <p class = "panel-contact">On 4/29/2017 from Lenore Kubie</p>
+                <p class = "panel-description padding-top-small">Lenore is going to enter all my data</p>
+            </div>
+        </div>
 
-<h3>Services I provide</h3>
-<%= link_to "Create new service", new_service_path %>
+        <div class = "module per33 tab-per50 padding-medium">
+            <h3 class = "margin-bottom">Incoming offers</h3>
+            
+            <div class = "panel-notification offer">
+                <p class = "panel-title bold">Snow Shoveling</p>
+                <span class = "panel-cost bold">$30</span>
+                <p class = "panel-contact">For 4/30/2017 from Danielle Bisordi</p>
+                <p class = "panel-description padding-top-small">I'll shovel that day</p>
+            </div>
+        </div>
 
-<%= render 'services/service_list',
-  service_list: current_user.services %>
+    </div>
+</section>
