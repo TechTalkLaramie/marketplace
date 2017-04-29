@@ -9,7 +9,12 @@
 
 
 
-
+			<div class = "module per100 margin-bottom module-input">
+				<span class = "floating-label">Full Name</span>
+				<%= f.text_field :name, :class=> "medium input-floating-label" %>
+			</div>
+			
+			
 			<div class = "module per100 margin-bottom module-input">
 				<span class = "floating-label">E-mail Address</span>
 				<%= f.email_field :email, :class=> "medium input-floating-label" %>
@@ -39,7 +44,7 @@
 			
   			<div class = "module per100 margin-bottom module-input">
   				<span class = "floating-label">About Me</span>
-  				<%= f.text_area :about_me, :id => "about-me-text" %>
+  				<%= f.text_area :about_me, :id => "about-me-text", :class=> "medium input-floating-label" %>
 			</div>
 
 
@@ -48,24 +53,33 @@
 			  <% end %>
 			  
 			  
-			  <div class="field margin-top">
-			    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-			    <%= f.password_field :password, autocomplete: "off" %>
+			  
+			  
+			  
+			  
+    		<div class = "module per100 margin-bottom module-input">
+    			<span class = "floating-label">Password <i>(leave blank if you don't want to change it)</i></span>
+    			<%= f.password_field :password, autocomplete: "off" , :class=> "medium input-floating-label"%>
 			    <% if @minimum_password_length %>
 			      <br />
 			      <em><%= @minimum_password_length %> characters minimum</em>
 			    <% end %>
-			  </div>
+  			</div>
+			  
+			  
+			  
+			  
+    		<div class = "module per100 margin-bottom module-input">
+    			<span class = "floating-label">Password Confirmation</span>
+    			<%= f.password_field :password_confirmation, autocomplete: "off", :class=> "medium input-floating-label" %>
+  			</div>
+			
+    		<div class = "module per100 margin-bottom module-input">
+    			<span class = "floating-label">Current Password <i>(we need your current password to confirm your changes)</i></span>
+    			<%= f.password_field :current_password, autocomplete: "off", :class=> "medium input-floating-label" %>
+  			</div>
 
-			  <div class="field">
-			    <%= f.label :password_confirmation %><br />
-			    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-			  </div>
 
-			  <div class="field">
-			    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-			    <%= f.password_field :current_password, autocomplete: "off" %>
-			  </div>
 
 			  <div class="actions text-right margin-top">
 			    <%= f.submit "Update" , :class => "button medium", :id => "button-update-edit-profile"%>
