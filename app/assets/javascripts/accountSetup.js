@@ -1,11 +1,11 @@
 // JavaScript Document This will describe the walkthrough procedure for account setup
 /*  jQuery ready function. Specify a function to execute when the DOM is fully loaded.  */
-$(document).ready(
-	
-  /* This is the function that will get executed after the DOM is fully loaded */
-  function () {
+$(document).on('page:change', function() {
 	  
 	  var suggestJobType = function(input){
+		  //For this function you will need the following things on your input:
+		  //class = "input-jobType" list="jobSuggestions" 
+		  //below the input you need this: <datalist id="jobSuggestions"></datalist>
 		  //initialize the number of current suggestions to 0
 		  var i = 0 
 		  //loop through the lexicon array, and grab the first 5 that match what the user is typing
