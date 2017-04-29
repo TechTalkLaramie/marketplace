@@ -52,7 +52,7 @@
                                 </p>
                                 <p><%= posting.user.name %></p>
                                 <p><%= link_to "Hire", new_service_order_path(posting) %></p>
-                                <p class="margin-bottom"><%= posting.created_at %></p>
+                                <p class="margin-bottom"><%= posting.created_at.strftime("%m/%d/%y") %></p>
                         <% end %>
 
             </div>
