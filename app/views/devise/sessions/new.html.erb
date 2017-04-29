@@ -6,12 +6,12 @@
 
             <div class = "module per100 margin-bottom module-input">
               <span class = "floating-label">Email</span>
-              <%= f.email_field :email, autocomplete: "true", :class=> 'medium input-floating-label'%>
+              <%= f.email_field :email, autocomplete: "true", :class=> 'per100 medium input-floating-label'%>
             </div>
 
             <div class = "module per100 margin-bottom module-input">
               <span class = "floating-label">Password</span>
-              <%= f.password_field :password, autocomplete: "off", :class=> 'medium input-floating-label'%>
+              <%= f.password_field :password, autocomplete: "off", :class=> 'per100 medium input-floating-label'%>
             </div>
 
             <% if devise_mapping.rememberable? -%>
