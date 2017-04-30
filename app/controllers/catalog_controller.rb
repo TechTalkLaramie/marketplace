@@ -1,4 +1,4 @@
-class CatelogController < ApplicationController
+class CatalogController < ApplicationController
 	def index
 
 	end
