@@ -1,7 +1,7 @@
 <section class = "banner" id = "banner-profile">
     <div class = "container">
         <div class = "module per100 padding-medium">
-            <h2 class = "margin-bottom"><%= link_to @user.name, profile_path(@user.id) %></h2>
+            <h2 class = "margin-bottom"><%= link_to @user.name || @user.email, profile_path(@user.id) %></h2>
             <div class = "module-container">
                 <div class = "module per10">
                     <img class = "image-profile-picture" src = "img/goat picture.jpg">
@@ -15,12 +15,12 @@
 
         <div class = "module padding-medium per50 tab-per100">
             <h3 class = "margin-bottom">Services Offered</h3>
-            
+        
             <div class = "module-container">
                 <%= render partial: 'services/service_list', object: @user.services %>
             </div>
         </div>
-        
+
         <div class = "module padding-medium per50 tab-per100">
             <h3 class = "margin-bottom">Reviews</h3>
         </div>
