@@ -24,7 +24,7 @@
             <div class = "module-container">
                 <p class = "bold uppercase margin-top padding-bottom-small">Recent postings</p>
                 <% @user.services.each do |posting| %>
-                    <div class = "panel-notification posting">
+                    <div class="panel-notification posting service_<%= posting.id %>">
                         <p class = "panel-title bold"><%= posting.headline %></p>
                         <span class = "panel-cost bold">$<%= posting.price %>/<%= posting.fixed_rate ? 'job' : 'hr' %></span>
                         <p class = "panel-contact">Posted at <%= Date.parse(posting.created_at.to_s).strftime("%m/%d/%Y %l:%M") %></p>
