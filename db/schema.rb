@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430173523) do
+ActiveRecord::Schema.define(version: 20170430164926) do
+
+  create_table "categories", force: :cascade do |t|
+    t.integer  "category_id"
+    t.string   "category_name"
+    t.text     "category_description"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "orders", force: :cascade do |t|
     t.datetime "appointment_time"
@@ -19,8 +27,8 @@ ActiveRecord::Schema.define(version: 20170430173523) do
     t.datetime "accepted_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.datetime "cancelled_at"
     t.datetime "completed_at"
+    t.datetime "cancelled_at"
     t.datetime "rejected_at"
   end
 
@@ -38,10 +46,11 @@ ActiveRecord::Schema.define(version: 20170430173523) do
     t.integer  "user_id"
     t.string   "headline"
     t.text     "description"
-    t.decimal  "price",           precision: 9, scale: 2
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.decimal  "price",       precision: 9, scale: 2
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.boolean  "fixed_rate"
+    t.integer  "category_id"
     t.boolean  "seeking_help"
     t.datetime "expiration_date"
   end

@@ -1,4 +1,6 @@
 # README
+## Install ImageMagick
+https://github.com/thoughtbot/paperclip#image-processor
 
 ## Windows setup
 

@@ -28,7 +28,7 @@
 
                     <%- current_user.accepted_orders_i_have_or_placed.each do |order| -%>
                       <div class = "panel-notification <%= order.service.user == current_user ? "hire" : "gig" %>">
-                          <p class = "panel-title bold"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
+                          <p class = "panel-title bold"><%= link_to order.headline.titleize, show_service_path(order.service) %> - <%= order.service.category.category_name %></p>
                           <p class = "panel-cost bold"><%= number_to_currency(order.price) %>/<%= order.service.fixed_rate ? 'job' : 'hour' %></p>
                           <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M") %> with <%= link_to order.user.name, profile_path(order.user.id) %></p>
                           <p class = "panel-description padding-top-small"><%= order.description %></p>
@@ -47,7 +47,7 @@
 
                    <%- current_user.orders.unaccepted_awaiting_response.each do |order| -%>
                       <div class = "panel-notification gig">
-                          <p class = "panel-title bold"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
+                          <p class = "panel-title bold"><%= link_to order.headline.titleize, show_service_path(order.service) %>  - <%= order.service.category.category_name %></p>
                           <p class = "panel-cost bold"><%= number_to_currency(order.price) %>/<%= order.service.fixed_rate ? 'job' : 'hour' %></p>
                           <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M") %> with <%= link_to order.user.name, profile_path(order.user.id) %></p>
                           <p class = "panel-description padding-top-small"><%= order.description %></p>
@@ -62,7 +62,7 @@
 
                     <%- current_user.orders_i_placed.unaccepted.each do |order| -%>
                       <div class = "panel-notification hire">
-                          <p class = "panel-title bold"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
+                          <p class = "panel-title bold"><%= link_to order.headline.titleize, show_service_path(order.service) %> - <%= order.service.category.category_name %></p>
                           <p class = "panel-cost bold"><%= number_to_currency(order.price) %>/<%= order.service.fixed_rate ? 'job' : 'hour' %></p>
                           <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M") %> with <%= link_to order.service.user.name, profile_path(order.service.user.id) %></p>
                           <p class = "panel-description padding-top-small"><%= order.description %></p>
