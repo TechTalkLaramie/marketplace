@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       member do
         post "accept"
         post "cancel"
+        post "complete"
       end
     end
   end
