@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   get "/dashboard", to: "dashboard#index"
   get "/catalog", to:"catalog#index"
   get "/catalog/:id", to: "catalog#show", as: 'show_service'
-  resources :services
-  resources :profiles, only: [:show]
   resources :services do
     resources :orders do
       member do
