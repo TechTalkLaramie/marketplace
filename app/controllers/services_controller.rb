@@ -29,7 +29,7 @@ class ServicesController < ApplicationController
      @service.update_attributes(params[:service].permit([:headline, :description, :fixed_rate, :price, :seeking_help, :expiration_date]))
 
     if @service.update_attributes(params[:service].permit([:headline, :description, :fixed_rate, :price]))
-      redirect_to '/dashboard'
+      redirect_to "/profiles/#{current_user.id}"
     else
       render :edit
     end
