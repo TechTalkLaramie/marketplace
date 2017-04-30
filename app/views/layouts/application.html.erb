@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -26,7 +32,7 @@
         <header class = "banner">
             <div class = "container align-middle">
                 <div class = "module per30 mob-per80 inverse" id = "logo"> 
-                    <h1><%= link_to "Gitch.me", root_path %></h1>
+                    <h1><%= link_to image_tag("gitchMeLogo.png", :alt => "gitch logo"), root_path, :class=>'logo' %></h1>
                 </div>
                 
                 <div class = "module per70 mob-per20 text-right inverse">
