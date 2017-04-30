@@ -1,7 +1,7 @@
 <section class = "banner" id = "banner-profile">
     <div class = "container">
         <div class = "module per100 padding-medium">
-            <h2 class = "margin-bottom"><%= link_to current_user.name, profile_path(current_user.id) %></h2>
+            <h2 class = "margin-bottom"><%= link_to @user.name, profile_path(@user.id) %></h2>
             <div class = "module-container">
                 <div class = "module per10">
                     <img class = "image-profile-picture" src = "img/goat picture.jpg">
@@ -14,7 +14,7 @@
         </div>
 
         <div class = "module padding-medium per50 tab-per100">
-            <h3 class = "margin-bottom">About <%= current_user.name.split(" ").first %></h3>
+            <h3 class = "margin-bottom">About <%= @user.name.split(" ").first %></h3>
             
             <div class = "module-container">
                 <p class = "bold uppercase padding-bottom-small">Services Offered</p>
@@ -29,7 +29,10 @@
                         <span class = "panel-cost bold">$<%= posting.price %>/<%= posting.fixed_rate ? 'job' : 'hr' %></span>
                         <p class = "panel-contact">Posted at <%= Date.parse(posting.created_at.to_s).strftime("%m/%d/%Y %l:%M") %></p>
                     </div>
-                    <%= link_to "Hire", new_service_order_path(posting), :class =>'module-make-connection padding-mini text-center margin-bottom module per100' %>
+                    
+                    <%- if current_user.id != @user.id -%>
+                        <%= link_to "Hire", new_service_order_path(posting), :class =>'module-make-connection padding-mini text-center margin-bottom module per100' %>
+                    <%- end -%>
                 <% end %>
             </div>
         </div>
