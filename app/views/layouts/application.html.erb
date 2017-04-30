@@ -67,6 +67,8 @@
                     </div>
 
                     <%= link_to "Search Gigs", catalog_path, :class => 'button per100 module-dashboard-action text-center'  %>
+                    
+                    <%= link_to "Logout", destroy_user_session_path,  :method => :delete, :class => 'button per100 module-dashboard-action text-center'  %>
                 </div>
             </div>
         </section>
