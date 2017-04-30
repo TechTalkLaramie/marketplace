@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20170430054748) do
     t.datetime "accepted_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.datetime "cancelled_at"
     t.datetime "completed_at"
+    t.datetime "cancelled_at"
     t.datetime "rejected_at"
   end
 
