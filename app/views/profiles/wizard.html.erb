@@ -70,13 +70,13 @@
 					<div class ="module-container text-center align-center">
 						<p class = "large">Would you like to upload a photo?</p>
 						<br />
-						(Just click next if you'd like to upload one later)
+						<p class = "per100">(Just click next if you'd like to upload one later)</p>
 						<br />
-						<input form = "form-accountSetup" type = "file" name = "photo" id = "input-photoFile" class = "margin-top per50">
+						<%= f.file_field :avatar, :class=> "margin-top per50", :id => "input-photoFile" %>
 						<br />
 					</div>
-	  			  <div class="actions text-right margin-top">
-	  			    <%= f.submit "Finish!" , :class => "button medium", :id => "wizard-update-profile"%>
+	  			  <div class="actions text-center margin-top">
+	  			    <%= f.submit "Finish!" , :class => "button per50 medium", :id => "wizard-update-profile"%>
 	  			  </div>
 					
 					<div id = "step4Text" class = "margin-top per20">Step 4 of 4</div>
