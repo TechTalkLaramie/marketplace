@@ -9,10 +9,16 @@
                 <%= f.text_field :headline, :class=> 'medium per100 input-floating-label'%>
                 <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
 	    </div>
-	    <div>
-
-		    <%= f.select("category_id",Category.all.collect {|c| [c.category_name, c.id] } ) %>
-	</div>
+		
+		
+		
+		
+            <div class = "module per100 margin-bottom module-input">
+                <span class = "floating-label">Category</span>
+               	    <%= f.select("category_id",Category.all.collect {|c| [c.category_name, c.id]} , {},{class:"per100"})%>
+                <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
+	    </div>
+		
 
             <div class = "module per100 margin-bottom module-input">
                 <span class = "floating-label">Description</span>
@@ -51,10 +57,19 @@
 					<%= f.check_box :seeking_help, :id=>"seekingHelpCheckboxNewService" %>
 				</div>
 				<div>
+					<p>Expiration Date</p>
 					<input type="date" id="createNewServiceExpirationDate" class = "createAppointmentDateTime">
 					<input type="time" id="createNewServiceExpirationTime" class = "createAppointmentDateTime">
 				</div>
-				<div class = "module per100 margin-bottom" >
+				
+				
+				
+				<div class = "module per100 text-center hidden">
+				    <%= f.datetime_field :expiration_date, :id=>"formDateTimeFieldNewServiceExpiration" %>
+				</div>
+				
+				
+				<div class = "module per100 margin-bottom hidden" >
 				<%=
 				button_title = if request.fullpath=="/services/new" then "Create New Service" else "Update Service" end
 				submit_tag button_title, :class => 'button margin-top'
