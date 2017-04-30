@@ -24,17 +24,20 @@
         <div class = "module padding-medium per50 tab-per100">
             <h3 class = "margin-bottom">Reviews</h3>
             <%- @user.reviews.each do |review| -%>
-              <div>
-              <p>
-              <%= review.description %>
-              </p>
-              <p>
-                <%= review.rating %> star rating from <%= review.from_user.name %> at <%= review.created_at %>
-              </p>
-              <p>
+            
+            <div class = "module per100 margin-bottom">
+                <%- $i = 1 -%>
+                <%- $rating = review.rating.to_i + 1 -%>
+                <%- until $i >= $rating do -%>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <%- $i+=1 -%>
+                <%- end -%>
+               
+               <p>On <%= Date.parse(review.created_at.to_s).strftime("%m/%d/%Y") %>, <%= review.from_user.name %> said <%= review.description %></p>
+              <!-- <p>
                 For <%= review.order.service.headline %> at <%= review.order.appointment_time %>
-              </p>
-              </div>
+              </p> -->
+            </div>
             <%- end -%>
         </div>
     </div>
