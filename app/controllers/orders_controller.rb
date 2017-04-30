@@ -12,4 +12,11 @@ class OrdersController < ApplicationController
     flash[:notify] = "Your order was created"
     redirect_to "/dashboard"
   end
+
+  def accept
+    @order = Order.find(params[:id])
+    @order.accepted_at = Time.now
+    @order.save
+    redirect_to "/dashboard"
+  end
 end

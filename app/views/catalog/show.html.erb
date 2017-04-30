@@ -1,0 +1,6 @@
+<h3><%= @service.headline %></h2>
+<%= link_to "Hire", new_service_order_path(@service), :class => 'button margin-bottom' %>
+<h4>by <%= @service.user.name %> - <%= number_to_currency(@service.price) %></h4>
+<%= @service.description %>
+
+

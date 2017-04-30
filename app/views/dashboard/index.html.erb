@@ -27,8 +27,7 @@
         
         <div class = "module per70 padding-medium">
             <div class = "module-container">
-       
-                <div class = "module per33 tab-per50 padding-medium">
+                <div class = "module per33 tab-per100 padding-medium">
                     <h3 class = "margin-bottom">Upcoming gigs and hires</h3>
 
                     <%- if false -%>
@@ -50,7 +49,7 @@
                     <%- end -%>
                 </div>
 
-                <div class = "module per33 tab-per50 padding-medium">
+                <div class = "module per33 tab-per100 padding-medium">
                     <h3 class = "margin-bottom">Pending Incoming offers</h3>
 
                     <%- current_user.orders.unaccepted.each do |order| -%>
@@ -63,7 +62,7 @@
                     <%- end -%>
                 </div>
 
-                <div class = "module per33 tab-per50 padding-medium">
+                <div class = "module per33 tab-per100 padding-medium">
                     <h3 class = "margin-bottom">Pending Outgoing offers</h3>
 
                     <%- current_user.orders.unaccepted.each do |order| -%>
