@@ -25,6 +25,9 @@
 .createAppointmentDateTime::-webkit-inner-spin-button { 
     display: none;
 }
+.createAppointmentDateTime{
+	cursor:pointer;
+}
 
 /* Always display the drop down caret */
 .createAppointmentDateTime::-webkit-calendar-picker-indicator {
