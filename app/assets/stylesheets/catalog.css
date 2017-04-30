@@ -54,3 +54,8 @@
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
 }
+
+.moduleServiceOfferedTitle{
+	white-space:nowrap;
+    overflow:hidden;
+}

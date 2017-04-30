@@ -8,13 +8,13 @@ $(document).on('turbolinks:load', function() {
 		if(currentOffset == "0px"){
 			//$("#module-toggleCover").css("right", distanceToMove)
 			$("#module-toggleCover").animate({"right": distanceToMove})
-			$("#priceInputPerText").text("flat-rate")
+			$("#priceInputPerText").text("/job")
 			$("#fixedRateCheckboxNewService").attr('checked', true)
 		}
 		else{
 			//$("#module-toggleCover").css("right", "0px")
 			$("#module-toggleCover").animate({"right": "0px"})
-			$("#priceInputPerText").text("per hour")
+			$("#priceInputPerText").text("/hour")
 			$("#fixedRateCheckboxNewService").attr('checked', false)
 		}
 		
