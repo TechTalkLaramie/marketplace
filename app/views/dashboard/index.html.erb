@@ -26,17 +26,8 @@
                 <div class = "module per33 tab-per100 padding-medium">
                     <h3 class = "margin-bottom">Upcoming gigs and hires</h3>
 
-                    <%- if false -%>
-                    <div class = "panel-notification gig">
-                        <p class = "panel-title bold">Snow Shoveling</p>
-                        <span class = "panel-cost bold">$30</span>
-                        <p class = "panel-contact">On 4/29/2017 for Lenore Kubie</p>
-                        <p class = "panel-description padding-top-small">Shoveling for Lenore</p>
-                    </div>
-                    <%- end -%>
-
-                    <%- current_user.orders.accepted.each do |order| -%>
-                      <div class = "panel-notification offer">
+                    <%- current_user.accepted_orders_i_have_or_placed.each do |order| -%>
+                      <div class = "panel-notification <%= order.service.user == current_user ? "offer" : "gig" %>">
                           <p class = "panel-title bold"><%= order.headline %></p>
                           <span class = "panel-cost bold"><%= number_to_currency(order.price) %></span>
                           <p class = "panel-contact">For <%= order.appointment_time.strftime("%m/%d/%Y") %> from <%= order.user.name %></p>
