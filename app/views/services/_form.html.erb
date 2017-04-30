@@ -1,6 +1,6 @@
 <section class = "banner">
     <div class = "container">
-        <h2 class = "large margin-bottom">Create a new posting</h2>
+        <h2 class = "large margin-bottom"><%= params[:gigtype] == 'hire' ? 'Post a Job for Hire' : 'Offer a Service'%></h2>
 
         <%= form_for service do |f|  -%>
 
@@ -27,9 +27,11 @@
                 <div class = "module per80 module-input input-money">
     				<div class = "module-container">
                		 	<span class = "floating-label">Price</span>
+
 				<%= f.text_field :price, :class => 'medium per100 input-floating-label', :value =>number_with_precision(f.object.price, precision: 2) %>
-    	            	<div class = "module per10 text-left self-align-middle" id = "priceInputPerText">
-    	               	 per hour
+    	            	<div class = "module per10 mob-per30 padding-right-small text-right self-align-middle" id = "priceInputPerText">
+    	               	 /hour
+
     					</div>
     				</div>
                 </div>
@@ -37,13 +39,13 @@
     			<!-- Manually making a toggle switch-->
                 <div class = "module per20 self-align-middle">
                    <div class = "module-container" id ="container-newServiceToggle">
-    				   <div class = "module per50 medium padding-small text-center" id = "perHourToggle">per hour</div>
-    				   <div class = "module per50 medium padding-small text-center" id ="flatRateToggle">flat-rate</div>
+    				   <div class = "module per50 medium padding-small text-center price-toggle" id = "perHourToggle">per hour</div>
+    				   <div class = "module per50 medium padding-small text-center price-toggle" id ="flatRateToggle">flat-rate</div>
     				   <div class = "module per50 medium padding-small" id = "module-toggleCover">&nbsp;</div>
     			   </div>
                 </div>
 
-                <div class = "module per100">
+                <div class = "module per100" id = "module-error">
                     <span class = "error-message"><%= @service.errors.messages[:price].to_sentence %></span>
                 </div>
 
@@ -53,7 +55,7 @@
                 </div>
             </div>
 
-            <div class = "module per100 margin-top margin-bottom module-input">
+            <div class = "module per100 margin-top margin-bottom module-input" id = "seeking-help">
             	<span class = "label">Seeking help?</span>
             	<%= f.check_box :seeking_help, :id=>"seekingHelpCheckboxNewService" %>
             </div>
