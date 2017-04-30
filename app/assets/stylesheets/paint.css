@@ -621,7 +621,7 @@ header.banner {
 /***************************************************************************/
 .banner#banner-sidebar {
     background-color: #555;
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     right: -20%;
@@ -629,7 +629,6 @@ header.banner {
     color: white;
     z-index: 20;
 	padding-top: 5px;
-	overflow: scroll;
 }
 
 .banner#banner-sidebar * {
@@ -1069,6 +1068,23 @@ header.banner {
 		right: -80%;
 		position: absolute;
 		overflow: auto;
+	}
+	
+	.price-toggle {
+		margin-bottom: 0;
+		width: 50%;
+	}
+	
+	#module-toggleCover {
+		width: 50%;
+	}
+	
+	#module-error {
+		margin-bottom: 0;
+	}
+	
+	#seeking-help {
+		margin-top: 0;
 	}
 
 	/* OPTIONAL, TO ENSURE EVERY ELEMENT IS CENTERED */
