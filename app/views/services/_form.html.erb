@@ -8,7 +8,15 @@
                 <span class = "floating-label">Headline</span>
                 <%= f.text_field :headline, :class=> 'medium per100 input-floating-label'%>
                 <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
-            </div>
+	    </div>
+	    <div>
+		    <select>
+			    <%- Category.all.each do |category| -%>
+				    <option value=<%= category.id %>><%= category.category_name %></option>
+				    </option>
+			    <%- end -%>
+		    </select>
+	</div>
 
             <div class = "module per100 margin-bottom module-input">
                 <span class = "floating-label">Description</span>
