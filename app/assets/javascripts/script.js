@@ -52,9 +52,16 @@ $(document).on('turbolinks:load', function() {
      * slides sidebar out to left
      */
     function closeSidebar() {
-        $('.banner#banner-sidebar').animate({
-            right: '-30%'
-        });
+        
+        if ($(window).width > 768) {
+            $('.banner#banner-sidebar').animate({
+                right: '-30%'
+            });
+        } else {
+            $('.banner#banner-sidebar').animate({
+                right: '-80%'
+            });
+        }
     }
     
     /* 
