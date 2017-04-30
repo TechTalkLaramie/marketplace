@@ -65,8 +65,33 @@
             <div class = "module per100 text-center hidden">
                 <%= f.datetime_field :expiration_date, :id=>"formDateTimeFieldNewServiceExpiration" %>
             </div>
-			
-			<div class = "module per100 margin-bottom hidden" >
+
+			 <div class = "module per100">
+				 <span class = "error-message"><%= @service.errors.messages[:price].to_sentence %></span>
+			 </div>
+	            <div class = "module per100 margin-bottom module-input hidden">
+	                <span class = "label">Fixed rate?</span>
+	                <%= f.check_box :fixed_rate, :id=>"fixedRateCheckboxNewService" %>
+	            </div>
+				<div class = "module per100 margin-bottom module-input">
+					<span class = "label">Seeking help?</span>
+					<%= f.check_box :seeking_help, :id=>"seekingHelpCheckboxNewService" %>
+				</div>
+				<div>
+					<p>Expiration Date</p>
+					<input type="date" id="createNewServiceExpirationDate" class = "createAppointmentDateTime">
+					<input type="time" id="createNewServiceExpirationTime" class = "createAppointmentDateTime">
+				</div>
+				
+				
+				
+				<div class = "module per100 text-center hidden">
+				    <%= f.datetime_field :expiration_date, :id=>"formDateTimeFieldNewServiceExpiration" %>
+				</div>
+				
+				
+				<div class = "module per100 margin-bottom" >
+>>>>>>> ccbedc1afdc5567c6a387eaa4cfd29d97c9226cc
 				<%=
 				button_title = if request.fullpath=="/services/new" then "Create New Service" else "Update Service" end
 				submit_tag button_title, :class => 'button margin-top'
