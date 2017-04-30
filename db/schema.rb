@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430173523) do
+ActiveRecord::Schema.define(version: 20170430220949) do
 
   create_table "categories", force: :cascade do |t|
     t.integer  "category_id"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170430173523) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "location_description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -24,3 +24,5 @@
 
 # Ignore public/system
 public/system
+
+.DS_Store

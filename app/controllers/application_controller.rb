@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [:lat, :lng, :name, :phone, :about_me, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:lat, :lng, :name, :phone, :about_me, :avatar, :location_description])
   end
 
   def set_headers

@@ -51,10 +51,11 @@
 
 			<div class = "module per100 margin-bottom module-input input-money">
 				<span class = "floating-label">Location</span>
-				<input class = "medium per100 input-floating-label post-input padding-small" placeholder = "" type = "text" id = "input_editProfileloction">
+        <input class = "medium per100 input-floating-label post-input padding-small" value= "<%= resource.location_description %>" type = "text" id = "input_editProfileloction">
 				<!-- ADD HIDDEN INPUTES FOR LAT AND LONG BASED ON API RESPONCE-->
         <%= f.hidden_field :lat, :class=> "medium input-floating-label per100 hidden", :id=>"editProfileHiddenLat" %>
-        <%= f.hidden_field:lng, :class=> "medium input-floating-label per100 hidden", :id=>"editProfileHiddenLng"  %>
+        <%= f.hidden_field :lng, :class=> "medium input-floating-label per100 hidden", :id=>"editProfileHiddenLng"  %>
+        <%= f.hidden_field :location_description, :class=> "medium input-floating-label per100 hidden", :id=>"editProfileLocationDesc"  %>
 			</div>
 
 
@@ -123,7 +124,7 @@
             {types: ['geocode']});
 	        autocomplete.addListener('place_changed', function()     {
 	          var place = autocomplete.getPlace()
-	          console.log(place);
+            $('#editProfileLocationDesc').val(place.formatted_address)
 	          $.each(place.address_components, function(index, region) {
 	          if(place.geometry.location) {
 	            $('#editProfileHiddenLat').val(place.geometry.location.lat())

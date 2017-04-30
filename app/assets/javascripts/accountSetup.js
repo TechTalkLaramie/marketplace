@@ -1,13 +1,13 @@
 // JavaScript Document This will describe the walkthrough procedure for account setup
 /*  jQuery ready function. Specify a function to execute when the DOM is fully loaded.  */
 $(document).on('turbolinks:load', function() {
-	  
+
 	  var suggestJobType = function(input){
 		  //For this function you will need the following things on your input:
-		  //class = "input-jobType" list="jobSuggestions" 
+		  //class = "input-jobType" list="jobSuggestions"
 		  //below the input you need this: <datalist id="jobSuggestions"></datalist>
 		  //initialize the number of current suggestions to 0
-		  var i = 0 
+		  var i = 0
 		  //loop through the lexicon array, and grab the first 5 that match what the user is typing
 		  $.each(lexiconOfJobs,function(index, value){
 			  //if the entered text matches a value in the array of all possible values, suggest it. Don't append it if it already exists
@@ -16,16 +16,16 @@ $(document).on('turbolinks:load', function() {
 				  $('#jobSuggestions').append("<option value='" + value + "'>");
 				  i += 1
 				  currentSuggestions.push(value)
-				  console.log(currentSuggestions) 
+				  console.log(currentSuggestions)
 			  }
 			  //if there are already 5 suggestions, then stop. Can change this if we want more suggestions
 			  if(i > 5){
 			  	return false
 			  }
-		 
+
 		  })
 	  }
-	  
+
 	  //this needs to be expanded
 	  var lexiconOfJobs = ["dog walker", "dog sitter", "pet sitter", "babysitter", "petsitter", "dog groomer", "snow removal"]
 	  //Hide all the Divs
@@ -40,14 +40,14 @@ $(document).on('turbolinks:load', function() {
 		  var enteredjobTypeText = $(this).val()
 		  suggestJobType(enteredjobTypeText)
 	  })
-	  
+
 	  //If you click the next button, hide the current div and show the next one.
 	  $('.nextButton').on("click",function(){
 		  var thisDParentName = $(this).parent().attr('id')
 		  var thisDivNumber = parseInt(thisDParentName.split('-')[2]);
 		  var nextDivNumber = thisDivNumber + 1
 		  var divToShow = $("#module-setup-" + nextDivNumber)
-		  
+
 		  //if any fields are empty, reject it and give an error message
 		  var emptyFields = false
 		  console.log($(this).parent().children('input[type="text"]'))
@@ -58,14 +58,14 @@ $(document).on('turbolinks:load', function() {
 			  	emptyFields = true
 			  }
 	 	 }
-			  
+
 
 		  if (emptyFields == true){
 			  console.log("ERROR")
 			  //then add an error message
-		  	
+
 		  }
-			
+
 		  //if it is the last question then so something special. For now just console log it
 		  else if ($(this).hasClass("finalQuestion")){
 			  //Eventually I need to pass this to the backend... but here it all is
@@ -77,16 +77,14 @@ $(document).on('turbolinks:load', function() {
 		  	divToShow.show()
 		  }
 	  });
-	 
-	  
-	  
-	  
-	  var currentLatLong = "(" + $('#editProfileHiddenLat').val() + ", " + $('#editProfileHiddenLng').val() + ")"
-	  $('#input_editProfileloction').val(currentLatLong)
-	  
-	  
 
-	  
-	  
-	  
+
+
+
+
+
+
+
+
+
  });
