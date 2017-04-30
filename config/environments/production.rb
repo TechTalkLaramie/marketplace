@@ -94,11 +94,11 @@ Rails.application.configure do
       s3_region: ENV.fetch('AWS_REGION'),
     }
   }
-  config.action_mailer.default_url_options = { host: 'ttlmarketplace.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'gitch.me'}
   ActionMailer::Base.smtp_settings = {
   :user_name => 'apikey',
   :password => ENV['SENDGRID_API_KEY'],
-  :domain => 'ttlmarketplace.herokuapp.com',
+  :domain => 'gitch.me',
   :address => 'smtp.sendgrid.net',
   :port => 587,
   :authentication => :plain,

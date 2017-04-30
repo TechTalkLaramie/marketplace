@@ -1,8 +1,10 @@
 class UserMailer < ApplicationMailer
+  default from: '"gitch" <no-reply@gitch.me>'
+
   def order_made(order)
     @order = order
     mail(
-      to: @order.service.user.email, 
+      to: @order.service.user.email,
       subject: "Order placed for #{@order.service.headline}")
   end
 
