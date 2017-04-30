@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
 	  @user = current_user
   end
   def submit_wizard
-	  current_user.update_attributes(params[:user].permit(:phone,:name))
+	  current_user.update_attributes(params[:user].permit(:phone,:name, :lat, :lng, :avatar))
 	  redirect_to "/dashboard"
   end
 end

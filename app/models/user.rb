@@ -19,6 +19,6 @@ class User < ApplicationRecord
   end
 
   def services_in_my_area(range,unit=:miles)
-    Service.joins(:user).within(range, :units => unit, :origin => [self.lat, self.lng]).where("services.user_id != ?", self.id)
+    Service.joins(:user).within(range, :units => unit, :origin => [self.lat, self.lng])
   end
 end

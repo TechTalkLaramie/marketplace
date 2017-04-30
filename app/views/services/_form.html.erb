@@ -1,82 +1,84 @@
 <section class = "banner">
     <div class = "container">
-        <h2 class = "large margin-bottom">Create a new service</h2>
+        <h2 class = "large margin-bottom">Create a new posting</h2>
 
         <%= form_for service do |f|  -%>
-		<div class = "module-container">
-            <div class = "module per100 margin-bottom module-input">
-                <span class = "floating-label">Headline</span>
-                <%= f.text_field :headline, :class=> 'medium per100 input-floating-label'%>
-                <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
-	    </div>
-		
-		
-		
-		
-            <div class = "module per100 margin-bottom module-input">
-                <span class = "floating-label">Category</span>
-               	    <%= f.select("category_id",Category.order("category_name ASC").all.collect {|c| [c.category_name, c.id]} , {},{class:"per100"})%>
-                <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
-	    </div>
-		
 
-            <div class = "module per100 margin-bottom module-input">
-                <span class = "floating-label">Description</span>
-                <%= f.text_field :description, :class=> 'medium per100 input-floating-label'%>
-                <span class = "error-message"><%= service.errors.messages[:description].to_sentence %></span>
-            </div>
+    		<div class = "module-container">
+                <div class = "module per100 margin-bottom module-input">
+                    <span class = "floating-label">Headline</span>
+                    <%= f.text_field :headline, :class=> 'medium per100 input-floating-label'%>
+                    <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
+                </div>
 
-            <div class = "module per80 module-input input-money">
-					<div class = "module-container">
+                <div class = "module per100 margin-bottom module-input">
+                    <span class = "floating-label">Category</span>
+                   	    <%= f.select("category_id",Category.order("category_name ASC").all.collect {|c| [c.category_name, c.id]} , {},{class:"per100"})%>
+                    <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
+    	        </div>
+
+                <div class = "module per100 margin-bottom module-input">
+                    <span class = "floating-label">Description</span>
+                    <%= f.text_field :description, :class=> 'medium per100 input-floating-label'%>
+                    <span class = "error-message"><%= service.errors.messages[:description].to_sentence %></span>
+                </div>
+
+
+                <div class = "module per80 module-input input-money">
+    				<div class = "module-container">
                		 	<span class = "floating-label">Price</span>
-				<%= f.text_field :price, :class => 'medium per100 input-floating-label', :value => number_to_currency(f.object.price) %>
-		            	<div class = "module per10 text-left self-align-middle" id = "priceInputPerText">
-		               	 per hour
-						</div>
-					</div>
-	            </div>
+                		<%= f.text_field :price, :class => 'medium per100 input-floating-label' %>
+    	            	<div class = "module per10 text-left self-align-middle" id = "priceInputPerText">
+    	               	 per hour
+    					</div>
+    				</div>
+                </div>
 
-			<!-- Manually making a toggle switch-->
-            <div class = "module per20 self-align-middle">
-               <div class = "module-container" id ="container-newServiceToggle">
-				   <div class = "module per50 medium padding-small text-center" id = "perHourToggle">per hour</div>
-				   <div class = "module per50 medium padding-small text-center" id ="flatRateToggle">flat-rate</div>
-				   <div class = "module per50 medium padding-small" id = "module-toggleCover">&nbsp;</div>
-			   </div>
+    			<!-- Manually making a toggle switch-->
+                <div class = "module per20 self-align-middle">
+                   <div class = "module-container" id ="container-newServiceToggle">
+    				   <div class = "module per50 medium padding-small text-center" id = "perHourToggle">per hour</div>
+    				   <div class = "module per50 medium padding-small text-center" id ="flatRateToggle">flat-rate</div>
+    				   <div class = "module per50 medium padding-small" id = "module-toggleCover">&nbsp;</div>
+    			   </div>
+                </div>
 
+                <div class = "module per100">
+                    <span class = "error-message"><%= @service.errors.messages[:price].to_sentence %></span>
+                </div>
+
+                <div class = "module per100 margin-bottom module-input hidden">
+                    <span class = "label">Fixed rate?</span>
+                    <%= f.check_box :fixed_rate, :id=>"fixedRateCheckboxNewService" %>
+                </div>
             </div>
-			 <div class = "module per100">
-				 <span class = "error-message"><%= @service.errors.messages[:price].to_sentence %></span>
-			 </div>
-	            <div class = "module per100 margin-bottom module-input hidden">
-	                <span class = "label">Fixed rate?</span>
-	                <%= f.check_box :fixed_rate, :id=>"fixedRateCheckboxNewService" %>
-	            </div>
-				<div class = "module per100 margin-bottom module-input">
-					<span class = "label">Seeking help?</span>
-					<%= f.check_box :seeking_help, :id=>"seekingHelpCheckboxNewService" %>
-				</div>
-				<div>
-					<p>Expiration Date</p>
-					<input type="date" id="createNewServiceExpirationDate" class = "createAppointmentDateTime">
-					<input type="time" id="createNewServiceExpirationTime" class = "createAppointmentDateTime">
-				</div>
-				
-				
-				
-				<div class = "module per100 text-center hidden">
-				    <%= f.datetime_field :expiration_date, :id=>"formDateTimeFieldNewServiceExpiration" %>
-				</div>
-				
-				
+
+            <div class = "module per100 margin-top margin-bottom module-input">
+            	<span class = "label">Seeking help?</span>
+            	<%= f.check_box :seeking_help, :id=>"seekingHelpCheckboxNewService" %>
+            </div>
+
+            <div>
+            	<p>Expiration Date</p>
+            	<input type="date" id="createNewServiceExpirationDate" class = "createAppointmentDateTime">
+            	<input type="time" id="createNewServiceExpirationTime" class = "createAppointmentDateTime">
+            </div>
+
+            <div class = "module per100 text-center hidden">
+                <%= f.datetime_field :expiration_date, :id=>"formDateTimeFieldNewServiceExpiration" %>
+            </div>
+
+
+
+
+
 				<div class = "module per100 margin-bottom" >
+
 				<%=
 				button_title = if request.fullpath=="/services/new" then "Create New Service" else "Update Service" end
 				submit_tag button_title, :class => 'button margin-top'
 				%>
-				</div>
-
+			</div>
         <%- end -%>
 	</div>
-    </div>
 </section>

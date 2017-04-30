@@ -6,6 +6,8 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <%= favicon_link_tag 'favicon.ico' %>
+
 
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -26,7 +28,7 @@
         <header class = "banner">
             <div class = "container align-middle">
                 <div class = "module per30 mob-per80 inverse" id = "logo">
-                    <h1><%= link_to "Gitch.me", root_path %></h1>
+                    <h1><%= link_to image_tag("gitchMeLogo.png", :alt => "gitch logo"), root_path, :class=>'logo' %></h1>
                 </div>
 
                 <div class = "module per70 mob-per20 text-right inverse">
@@ -49,7 +51,7 @@
                     </div>
 
                     <div class = "module per100 padding-medium text-center margin-bottom margin-top">
-                      <img class = "image-profile-picture" src = "<%= current_user.avatar.url(:thumb) %>">
+                      <img class = "image-profile-picture" src = "<%= current_user.avatar.url(:thumb) %>" style = "width: 100px">
                         <p class = "margin-top bold large"><%= current_user.name %></p>
                         <p class = "margin-top"><%= current_user.about_me %></p>
                     </div>
@@ -62,9 +64,7 @@
 
                     <%= link_to "Create Service", new_service_path, :class => 'button per100 module-dashboard-action text-center'  %>
 
-                    <div class = "module per100 padding-small module-dashboard-action text-center">
-                        <p>Post Gig For Hire</p>
-                    </div>
+                    <%= link_to "Post Gig For Hire", new_service_path, :class => 'button per100 module-dashboard-action text-center'  %>
 
                     <%= link_to "Search Gigs", catalog_path, :class => 'button per100 module-dashboard-action text-center'  %>
 
@@ -93,7 +93,7 @@
 
                 <div class = "module per33 padding-medium">
                     <p>Social Media Icons</p>
-                    <button class = "margin-top per100" style = "background-color: #7f00ff">Contact us</button>
+                    <button class = "margin-top per100 primary-color">Contact us</button>
                 </div>
 
                 <div class = "module per33 padding-medium">
