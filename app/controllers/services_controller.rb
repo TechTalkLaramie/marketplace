@@ -9,7 +9,7 @@ class ServicesController < ApplicationController
     @service = current_user.services.build(params[:service].permit([:headline, :description, :fixed_rate, :price]))
 
     if @service.save
-      redirect_to '/dashboard'
+      redirect_to "/profiles/#{current_user.id}"
     else
       render :new
     end

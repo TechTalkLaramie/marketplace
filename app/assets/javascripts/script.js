@@ -10,6 +10,8 @@ $(document).on('turbolinks:load', function() {
         $('.hamburger').on('click', openSidebar);
         
         $('.close').on('click', closeSidebar);
+        
+        $('.review-star').on('click', reviewStars);
 
         $('.input-floating-label').on('focus', floatLabel);
 
@@ -20,7 +22,7 @@ $(document).on('turbolinks:load', function() {
         $('#post-input-hour').on('focus', function(){
             $('#post-input-fixed').value('');
         });
-   }
+    }
     
     /* 
      * initial css adjustments
@@ -34,7 +36,6 @@ $(document).on('turbolinks:load', function() {
                 $(this).prev('.floating-label').addClass('static-floating-label')
             }
         });
-        
     }
 
     /* 
@@ -54,6 +55,17 @@ $(document).on('turbolinks:load', function() {
             right: '-30%'
         });
     }
+    
+    /* 
+     * slides sidebar out to left
+     */
+    function reviewStars(e) {
+        var star = e.target;
+        $('.review-star').removeClass('fa-star').addClass('fa-star-o');
+        $(star).prevUntil($('.review-star:first-child')).andSelf().prev('.review-star:first-child').andSelf().removeClass('fa-star-o').addClass('fa-star');
+        var reviewValue = $(star).index() + 1;
+        $('#review_rating').val(reviewValue);
+    }
 
     /* 
      * animates input's label
@@ -69,7 +81,6 @@ $(document).on('turbolinks:load', function() {
         
         $(input).addClass('focus-input');
     }
-
 
 });
 

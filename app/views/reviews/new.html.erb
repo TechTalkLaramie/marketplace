@@ -1,12 +1,30 @@
-Review for <%= @review.user.name %> / <%= @service.headline %>
-<%= form_for(@review, url: service_order_reviews_path) do |f| %>
-  <p>
-    <%= f.label :rating %><br/>
-    <%= f.select :rating, [1,2,3,4,5] %>
-  </p>
-  <p>
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </p>
-  <%= submit_tag "Submit Review" %>
-<%- end -%>
+<section class = "banner" >
+    <div class = "container">
+        <div class = "module per100">
+            <h2 class = "margin-bottom">Leave Review for <%= @review.user.name %></h2>
+            <h3><%= @service.headline.titleize  %></h3>
+            
+            <%= form_for(@review, url: service_order_reviews_path) do |f| %>
+            
+            <div class = "module-container">
+                <div class = "module per100 module-review-stars margin-top margin-bottom">
+                    <i class="review-star fa fa-star-o" aria-hidden="true"></i>
+                    <i class="review-star fa fa-star-o" aria-hidden="true"></i>
+                    <i class="review-star fa fa-star-o" aria-hidden="true"></i>
+                    <i class="review-star fa fa-star-o" aria-hidden="true"></i>
+                    <i class="review-star fa fa-star-o" aria-hidden="true"></i>
+                </div>
+                
+                <div class = "module per100 margin-bottom module-input">
+                    <span class = "floating-label">Write Review</span>
+                    <%= f.text_area :description, :class=> 'per100 medium input-floating-label' %>
+                </div>
+            </div>
+            
+            <%= f.hidden_field :rating %>
+            
+            <%= submit_tag "Submit Review", :class => 'button per100' %>
+            <%- end -%>
+        </div>
+    </div>
+</section>
