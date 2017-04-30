@@ -28,7 +28,10 @@
 					<div class = "module-container servicesOfferedListingContainer" >
 
 						<div class = "module moduleServiceOfferedTitle per100 text-center bold padding-small">
-							<%= service.headline %><br /><%= service.category.try(:category_name) %>
+							<%= service.headline %>
+						</div>
+						<div class = "module moduleServiceOfferedCat per100 text-center bold">
+							<%= service.category.try(:category_name) %>
 						</div>
 						<div class = "module moduleServiceOfferedPhoto per100 text-center ">
               <img src = "<%= service.user.avatar.url(:thumb) %>" class = "service-profile-picture">
