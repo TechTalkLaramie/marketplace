@@ -754,9 +754,11 @@ header.banner {
 	border-radius: 0px 0px 5px 5px;
 }
 
-.module-make-connection:hover {
-	background-color: #555;
-	color: white;
+
+
+.module-make-connection i:hover, .module-make-connection p:hover {
+	font-weight: 700;
+	color: #6e6ea8;
 }
 
 .delete-service,

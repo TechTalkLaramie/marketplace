@@ -75,11 +75,11 @@
                     <h3 class = "margin-bottom">Pending Outgoing offers</h3>
 
                     <%- current_user.orders_i_placed.unaccepted.each do |order| -%>
-                      <div class = "panel-notification <%= order.service.seeking_help ? 'hire' : 'gig' =%>">
+                      <div class = "panel-notification <%= order.service.seeking_help ? 'gig' : 'hire' =%>">
                           <%- if order.service.seeking_help? -%>
-                              <p class = "panel-title bold">You want to work for <%= link_to order.user.name, profile_path(order.user.id) %>!</p>
+                              <p class = "panel-title bold">You want to work for <%= link_to order.service.user.name, profile_path(order.service.user.id) %>!</p>
                           <%- else -%>
-                              <p class = "panel-title bold">You want to hire <%= link_to order.user.name, profile_path(order.user.id) %>!</p>
+                              <p class = "panel-title bold">You want to hire <%= link_to order.service.user.name, profile_path(order.service.user.id) %>!</p>
                           <%- end -%>
                           <p class = "panel-title bold margin-top"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
                           <p class = "panel-cost bold"><%= number_to_currency(order.price) %>/<%= order.service.fixed_rate ? 'job' : 'hour' %></p>
