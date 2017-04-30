@@ -22,6 +22,7 @@
         <h3 class = "large margin-bottom">Postings</h3>
         
 				<%- @services.all.each do |service| -%>
+
 				<div class = "module per25 tab-per50 servicesOfferedListingModule padding-medium">
 					<%= link_to show_service_path(service) do %>
 					<div class = "module-container servicesOfferedListingContainer" >

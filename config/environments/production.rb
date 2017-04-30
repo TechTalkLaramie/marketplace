@@ -94,4 +94,14 @@ Rails.application.configure do
       s3_region: ENV.fetch('AWS_REGION'),
     }
   }
+  config.action_mailer.default_url_options = { host: 'ttlmarketplace.herokuapp.com'}
+  ActionMailer::Base.smtp_settings = {
+  :user_name => 'apikey',
+  :password => ENV['SENDGRID_API_KEY'],
+  :domain => 'ttlmarketplace.herokuapp.com',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
 end
