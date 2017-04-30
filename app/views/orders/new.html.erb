@@ -2,7 +2,7 @@
     <div class = "container">
 		<div class = "module per100 padding-bottom-large">
 			<!--Add a link back to the service link on the headline-->
-			<h3>Create an appointment for: <%= @service.headline %></h3>
+			<h3>Create an appointment for: <%= link_to @service.headline, show_service_path(@service) %></h3>
 		</div>
 		
 			<%= form_for(@order, url: service_orders_path(@service)) do |f| -%>
