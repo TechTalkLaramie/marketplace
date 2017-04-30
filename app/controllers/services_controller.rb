@@ -6,7 +6,7 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = current_user.services.build(params[:service].permit([:headline, :description, :fixed_rate, :price]))
+    @service = current_user.services.build(params[:service].permit([:headline, :description, :fixed_rate, :price, :category_id]))
 
     if @service.save
       redirect_to "/profiles/#{current_user.id}"
@@ -26,9 +26,9 @@ class ServicesController < ApplicationController
 
   def update
     @service = Service.find(params[:id])
-     @service.update_attributes(params[:service].permit([:headline, :description, :fixed_rate, :price]))
+     @service.update_attributes(params[:service].permit([:headline, :description, :fixed_rate, :price, :category_id]))
 
-    if @service.update_attributes(params[:service].permit([:headline, :description, :fixed_rate, :price]))
+    if @service.update_attributes(params[:service].permit([:headline, :description, :fixed_rate, :price, :category_id]))
       redirect_to '/dashboard'
     else
       render :edit

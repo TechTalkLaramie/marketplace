@@ -10,12 +10,8 @@
                 <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
 	    </div>
 	    <div>
-		    <select>
-			    <%- Category.all.each do |category| -%>
-				    <option value=<%= category.id %>><%= category.category_name %></option>
-				    </option>
-			    <%- end -%>
-		    </select>
+
+		    <%= f.select("category_id",Category.all.collect {|c| [c.category_name, c.id] } ) %>
 	</div>
 
             <div class = "module per100 margin-bottom module-input">
