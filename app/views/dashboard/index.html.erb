@@ -28,7 +28,7 @@
 
                     <%- current_user.accepted_orders_i_have_or_placed.each do |order| -%>
                     <%- if !order.complete? -%>
-                        <div class = "panel-notification <%= order.service.user == current_user ? "gig" : "hire" %>">
+                        <div class = "panel-notification <%= order.service.seeking_help? ? "hire" : "gig" %>">
                             <%- if order.service.seeking_help? -%>
                                 <p class = "panel-title bold"><%= link_to order.user.name, profile_path(order.user.id) %> is working for you!</p>
                             <%- else -%>
