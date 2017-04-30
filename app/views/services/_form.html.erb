@@ -15,7 +15,7 @@
 		
             <div class = "module per100 margin-bottom module-input">
                 <span class = "floating-label">Category</span>
-               	    <%= f.select("category_id",Category.all.collect {|c| [c.category_name, c.id]} , {},{class:"per100"})%>
+               	    <%= f.select("category_id",Category.order("category_name ASC").all.collect {|c| [c.category_name, c.id]} , {},{class:"per100"})%>
                 <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
 	    </div>
 		
