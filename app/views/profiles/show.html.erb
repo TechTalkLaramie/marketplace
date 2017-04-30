@@ -1,5 +1,41 @@
-<h3><%= @user.name %></h3>
-<h4>Email: <h5><%= @user.email %></h5></h4>
-<h4>About me: <h5><%= @user.about_me %></h5></h4>
-<h4>Services provided by <%= @user.name %></h4>
-<%= render partial: 'services/service_list', object: @user.services %>
+<section class = "banner" id = "banner-profile">
+    <div class = "container">
+        <div class = "module per100 padding-medium">
+            <h2 class = "margin-bottom"><%= link_to current_user.name, profile_path(current_user.id) %></h2>
+            <div class = "module-container">
+                <div class = "module per10">
+                    <img class = "image-profile-picture" src = "img/goat picture.jpg">
+                </div>
+
+                <div class = "module per90 padding-left-medium">
+                    <p><%= @user.about_me %></p>
+                </div>
+            </div>
+        </div>
+
+        <div class = "module padding-medium per50 tab-per100">
+            <h3 class = "margin-bottom">About <%= current_user.name.split(" ").first %></h3>
+            
+            <div class = "module-container">
+                <p class = "bold uppercase padding-bottom-small">Services Offered</p>
+                <%= render partial: 'services/service_list', object: @user.services %>
+            </div>
+
+            <div class = "module-container">
+                <p class = "bold uppercase margin-top padding-bottom-small">Recent postings</p>
+                <% @user.services.each do |posting| %>
+                    <div class = "panel-notification posting">
+                        <p class = "panel-title bold"><%= posting.headline %></p>
+                        <span class = "panel-cost bold">$<%= posting.price %>/<%= posting.fixed_rate ? 'job' : 'hr' %></span>
+                        <p class = "panel-contact">Posted at <%= Date.parse(posting.created_at.to_s).strftime("%m/%d/%Y %l:%M") %></p>
+                    </div>
+                    <%= link_to "Hire", new_service_order_path(posting), :class =>'module-make-connection padding-mini text-center margin-bottom module per100' %>
+                <% end %>
+            </div>
+        </div>
+        
+        <div class = "module padding-medium per50 tab-per100">
+            <h3 class = "margin-bottom">Reviews</h3>
+        </div>
+    </div>
+</section>
