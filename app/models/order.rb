@@ -12,6 +12,9 @@ class Order < ApplicationRecord
   scope :accepted, -> { where("accepted_at IS NOT NULL") }
 
   after_initialize :set_default_values
+  after_create do
+    UserMailer.order_made(self).deliver_now
+  end
 
   def complete?
     completed_at.present?

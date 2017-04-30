@@ -8,7 +8,11 @@
                 <span class = "floating-label">Headline</span>
                 <%= f.text_field :headline, :class=> 'medium per100 input-floating-label'%>
                 <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
-            </div>
+	    </div>
+	    <div>
+
+		    <%= f.select("category_id",Category.all.collect {|c| [c.category_name, c.id] } ) %>
+	</div>
 
             <div class = "module per100 margin-bottom module-input">
                 <span class = "floating-label">Description</span>

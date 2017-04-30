@@ -3,22 +3,22 @@
         <div class = "module per33">
             Search within <input type = "text" placeholder = "number">
         </div>
-        
+
         <div class = "module per33">
             <input type = "checkbox" value = "for hire">For hire
             <input type = "checkbox" value = "offers">Seeking work
         </div>
-        
+
         <div class = "module-container">
         <h3 class = "large margin-bottom">Postings</h3>
-        
+
 				<%- Service.all.each do |service| -%>
 				<div class = "module per25 tab-per50 servicesOfferedListingModule padding-medium">
 					<%= link_to show_service_path(service) do %>
 					<div class = "module-container servicesOfferedListingContainer" >
 
 						<div class = "module moduleServiceOfferedTitle per100 text-center bold padding-small">
-							<%= service.headline %>
+							<%= service.headline %><br /><%= service.category.try(:category_name) %>
 						</div>
 						<div class = "module moduleServiceOfferedPhoto per100 text-center ">
               <img src = "<%= service.user.avatar.url(:thumb) %>" class = "service-profile-picture">

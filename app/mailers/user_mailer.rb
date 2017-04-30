@@ -1,12 +1,16 @@
 class UserMailer < ApplicationMailer
-end
+  def order_made(order)
+    @order = order
+    mail(
+      to: @order.service.user.email, 
+      subject: "Order placed for #{@order.service.headline}")
+  end
 
-class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
- 
-  def welcome_email(current_user)
-    @user = current_user
-    @url  = 'http://ttlmarketplace.herokuapp.com/'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+  def order_accepted(order)
+
+  end
+
+  def order_completed(order)
+
   end
 end
