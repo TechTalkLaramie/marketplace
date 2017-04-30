@@ -32,6 +32,7 @@
                           <p class = "panel-cost bold"><%= number_to_currency(order.price) %>/<%= order.service.fixed_rate ? 'job' : 'hour' %></p>
                           <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M") %> with <%= order.user.name %></p>
                           <p class = "panel-description padding-top-small"><%= order.description %></p>
+                          <%= button_to "Cancel", cancel_service_order_path(order.service, order), method: :post %>
                           <%- if order.complete? -%>
                             Completed
                           <%- else -%>
@@ -44,13 +45,14 @@
                 <div class = "module per33 tab-per100 padding-left-small padding-right-small">
                     <h3 class = "margin-bottom">Pending Incoming offers</h3>
 
-                    <%- current_user.orders.unaccepted.each do |order| -%>
+                   <%- current_user.orders.unaccepted_awaiting_response.each do |order| -%>
                       <div class = "panel-notification gig">
                           <p class = "panel-title bold"><%= order.headline.titleize %></p>
                           <p class = "panel-cost bold"><%= number_to_currency(order.price) %>/<%= order.service.fixed_rate ? 'job' : 'hour' %></p>
                           <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M") %> with <%= order.user.name %></p>
                           <p class = "panel-description padding-top-small"><%= order.description %></p>
                           <%= button_to "Accept", accept_service_order_path(order.service, order), method: :post %>
+                          <%= button_to "Reject", reject_service_order_path(order.service, order), method: :post %>
                       </div>
                     <%- end -%>
                 </div>

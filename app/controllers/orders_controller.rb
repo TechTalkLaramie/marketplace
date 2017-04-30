@@ -26,4 +26,20 @@ class OrdersController < ApplicationController
     @order.save
     redirect_to new_service_order_review_path(@order.service, @order)
   end
+  
+  def cancel
+    # Technically, we should not lose the accepted information here, maybe this can be solved by audit-logs
+    @order = Order.find(params[:id])
+    @order.accepted_at = nil
+    @order.cancelled_at = Time.now
+    @order.save
+    redirect_to "/dashboard"
+  end
+  
+  def reject
+    @order = Order.find(params[:id])
+    @order.rejected_at = Time.now
+    @order.save
+    redirect_to "/dashboard"
+  end
 end
