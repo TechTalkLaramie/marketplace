@@ -2,11 +2,11 @@
 <%- service_list.each do |service| -%>
 
     <div class = "panel-notification posting service_<%= service.id %> gig">
-        <p class = "panel-title bold"><%= link_to service.headline, show_service_path(service) %> - <%= service.category.category_name %></p>
+        <p class = "panel-title bold"><%= link_to service.headline, show_service_path(service) %> - <%= service.category.try(:category_name) %></p>
         <span class = "panel-cost bold">$<%= service.price %>/<%= service.fixed_rate ? 'job' : 'hour' %></span>
         <p class = "panel-contact">Posted at <%= Date.parse(service.created_at.to_s).strftime("%m/%d/%Y %l:%M%P") %></p>
     </div>
-    
+
     <%- if current_user.id != @user.id -%>
         <%= link_to "Hire", new_service_order_path(service), :class =>'module-make-connection padding-mini text-center margin-bottom module per100' %>
     <%- else -%>
@@ -14,7 +14,7 @@
         <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, service_path(service), :class => 'padding-right-small', data: { confirm: "Are you sure you want to do that?" }, method: :delete, remote: true %>
         <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_service_path(service), :class => 'padding-left-small'%>
     </div>
-    <%- end -%> 
+    <%- end -%>
 
 <%- end -%>
 
