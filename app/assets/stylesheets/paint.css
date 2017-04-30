@@ -688,7 +688,10 @@ header.banner {
 /***************************************************************************/
 					/*************** DASHBOARD **************/
 /***************************************************************************/
-
+.change-password {
+	display: none;
+}
+					
 .banner#banner-dashboard {
 	background-color: #efefef;
 }
@@ -899,12 +902,16 @@ header.banner {
 
 
 @media (max-width: 768px) {
+	body {
+		overflow-x: hidden;
+	}
+	
 	.banner {
 		padding: 50px 0px;
 	}
 
 	.container {
-		width: 95%;
+		width: 90%;
 	}
 
 	.module {
@@ -1025,6 +1032,32 @@ header.banner {
 		order: 10;
 	}
 
+	h1 {
+		font-size: 1.75em;
+	}
+	
+	h2 {
+		font-size: 1.5em;
+	}
+	
+	h3 { 
+		font-size: 1.25em;
+	}
+	
+	.typewriter {
+		width: auto;
+	}
+	
+	#logo {
+		margin-bottom: 0;
+	}
+	
+	.banner#banner-sidebar {
+		width: 80%;
+		right: -80%;
+		position: absolute;
+		overflow: auto;
+	}
 
 	/* OPTIONAL, TO ENSURE EVERY ELEMENT IS CENTERED */
 	.text-left,
@@ -1052,6 +1085,12 @@ header.banner {
 
 	.margin-right {
 		margin-right: 0;
+	}
+	
+	.module-make-connection .padding-left-small,
+	.module-make-connection .padding-right-small {
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 }
 

@@ -33,7 +33,7 @@
                   <%- $i+=1 -%>
                 <%- end -%>
                
-               <p>On <%= Date.parse(review.created_at.to_s).strftime("%m/%d/%Y") %>, <%= review.from_user.name %> said <%= review.description %></p>
+               <p>On <%= Date.parse(review.created_at.to_s).strftime("%m/%d/%Y") %>, <%= link_to review.from_user.name, profile_path(review.from_user.id) %> said <%= review.description %></p>
               <!-- <p>
                 For <%= review.order.service.headline %> at <%= review.order.appointment_time %>
               </p> -->

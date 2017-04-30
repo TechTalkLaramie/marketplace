@@ -75,29 +75,27 @@
 
 
 
+                <div class = "module per100 margin-bottom" id = "button-change-password">
+                    <p>Change Password</p>
+                </div>
+                
+                <div class = "change-password">
 
+                    <div class = "module per100 margin-bottom module-input">
+                    	<span class = "floating-label">Password  <% @minimum_password_length ? '(six character minimum)' : '' %></span>
+                    	<%= f.password_field :password, autocomplete: "off" , :class=> "medium input-floating-label per100"%>
+                    </div>
 
-
-    		<div class = "module per100 margin-bottom module-input">
-    			<span class = "floating-label">Password <i>(leave blank if you don't want to change it)</i></span>
-    			<%= f.password_field :password, autocomplete: "off" , :class=> "medium input-floating-label per100"%>
-			    <% if @minimum_password_length %>
-			      <br />
-			      <em><%= @minimum_password_length %> characters minimum</em>
-			    <% end %>
-  			</div>
-
-
-
-
-    		<div class = "module per100 margin-bottom module-input">
-    			<span class = "floating-label">Password Confirmation</span>
-    			<%= f.password_field :password_confirmation, autocomplete: "off", :class=> "medium input-floating-label per100" %>
-  			</div>
+            		<div class = "module per100 margin-bottom module-input">
+            			<span class = "floating-label">Password Confirmation</span>
+            			<%= f.password_field :password_confirmation, autocomplete: "off", :class=> "medium input-floating-label per100" %>
+          			</div>
+                
+                </div>
 
 
 			  <div class="actions text-right margin-top per100">
-			    <%= f.submit "Update" , :class => "button medium", :id => "button-update-edit-profile"%>
+			    <%= f.submit "Update" , :class => "button medium per100", :id => "button-update-edit-profile"%>
 			  </div>
 			<% end %>
 		</div>

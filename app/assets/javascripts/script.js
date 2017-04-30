@@ -12,8 +12,11 @@ $(document).on('turbolinks:load', function() {
         $('.close').on('click', closeSidebar);
         
         $('.review-star').on('click', reviewStars);
+        
+        $('#button-change-password').on('click', changePasswordToggle);
 
         $('.input-floating-label').on('focus', floatLabel);
+        
 		$('.input-floating-label').on('change', floatLabel);
 
         $('#post-input-fixed').on('focus', function(){
@@ -52,10 +55,28 @@ $(document).on('turbolinks:load', function() {
      * slides sidebar out to left
      */
     function closeSidebar() {
-        $('.banner#banner-sidebar').animate({
-            right: '-30%'
-        });
+        
+        if ($(window).width > 768) {
+            $('.banner#banner-sidebar').animate({
+                right: '-30%'
+            });
+        } else {
+            $('.banner#banner-sidebar').animate({
+                right: '-80%'
+            });
+        }
     }
+    
+    
+    
+    /* 
+     * slides sidebar in from left
+     */
+    function changePasswordToggle() {
+        $('.change-password').slideToggle();
+    }
+    
+    
     
     /* 
      * slides sidebar out to left
