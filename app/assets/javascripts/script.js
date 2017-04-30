@@ -3,6 +3,15 @@ $(document).on('turbolinks:load', function() {
     bindEventListeners();
     cssAdjustments();
     
+	$('form').on("keydown", function(e){
+	    var keyCode = e.keyCode || e.which;
+	    if (keyCode === 13) { 
+	      e.preventDefault();
+	      return false;
+	    }
+	})
+	
+	
     /* 
      * binds event listeners
      */
