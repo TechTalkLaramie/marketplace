@@ -1,1 +1,4 @@
-<%= render 'form', service: @service %>
+<%=
+    extra_params = { :seeking_help => @service.seeking_help }
+    render 'form', service: @service, extra_params: extra_params
+%>
