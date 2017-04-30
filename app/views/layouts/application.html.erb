@@ -64,5 +64,30 @@
         </section>
 
         <%= yield %>
+        
+        <%- if request.path != '/dashboard' -%>
+        <footer class = "banner" id = "banner-footer">
+            <div class = "container">
+                <div class = "module per33 padding-medium">
+                    <p>Report</p>
+                    <p>Dispute an interaction</p>
+                    <p>Terms and Conditions</p>
+                    <p>Privacy Policy</p>
+                    
+                    <p class = "padding-top-large small">&copy; TechTalk Laramie 2017.</p>
+                </div>
+                
+                <div class = "module per33 padding-medium">
+                    <p>Search Gigs</p>
+                    <p>View Dashboard</p>
+                </div>
+                
+                <div class = "module per33 padding-medium">
+                    <p>Social Media Icons</p>
+                    <button class = "margin-top per100" style = "background-color: #7f00ff">Contact us</button>
+                </div>
+            </div>
+        </footer>
+        <%- end -%>
     </body>
 </html>
