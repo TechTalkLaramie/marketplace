@@ -81,7 +81,8 @@ $(document).on('turbolinks:load', function() {
 	  
 	  
 	  
-	  //OK, Down here I am going to try to incorporate the https://developers.google.com/places/web-service/autocomplete API
+	  var currentLatLong = "(" + $('#editProfileHiddenLat').val() + ", " + $('#editProfileHiddenLng').val() + ")"
+	  $('#input_editProfileloction').val(currentLatLong)
 	  
 	  
 

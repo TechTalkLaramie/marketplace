@@ -95,7 +95,7 @@ button,
 	cursor: pointer;
 	display: inline-block;
 	width: auto;
-	font-family: "Dosis";
+	font-family: "Nunito", sans-serif";
 	font-size: 1em;
 	box-sizing: border-box;
 }
@@ -144,7 +144,7 @@ select {
 	padding: 15px;
     box-sizing: border-box;
     color: rgba(0,0,0,.6);
-    font-family: "Dosis";
+    font-family: "Nunito", sans-serif";
 	border-radius: 0;
 	-webkit-appearance: none;
 	border: 1px solid #ccc;
@@ -722,9 +722,9 @@ header.banner {
     box-sizing: border-box;
 	box-shadow: 2px 2px 4px 1px #ddd;
     width: 100%;
-    margin-bottom: 10px;
+	margin-top: 10px;
     position: relative;
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
 }
 
 /*.panel-notification:not(.posting) > * {
@@ -754,12 +754,12 @@ header.banner {
 	border-radius: 0px 0px 5px 5px;
 }
 
-.module-make-connection:hover {
-	background-color: #555;
-	color: white;
+
+
+.module-make-connection i:hover, .module-make-connection p:hover {
+	font-weight: 700;
+	color: #6e6ea8;
 }
-
-
 
 .delete-service,
 .edit-service {
@@ -776,7 +776,7 @@ header.banner {
 /***************************************************************************/
 
 .banner#banner-footer {
-	background-color: #333;
+	background-color: #555;
 	color: white;
 }
 

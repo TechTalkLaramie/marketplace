@@ -1,8 +1,8 @@
 <%- show_service_provider ||= false -%>
 <%- service_list.each do |service| -%>
 
-    <div class = "panel-notification posting service_<%= service.id %> gig">
-        <p class = "panel-title bold"><%= link_to service.headline, show_service_path(service) %> - <%= service.category.try(:category_name) %></p>
+    <div class = "panel-notification <%= service.seeking_help ? 'gig' : 'hire' =%> service_<%= service.id %>">
+        <p class = "panel-title bold"><%= link_to service.headline, show_service_path(service) %></p>
         <span class = "panel-cost bold">$<%= service.price %>/<%= service.fixed_rate ? 'job' : 'hour' %></span>
         <p class = "panel-contact">Posted at <%= Date.parse(service.created_at.to_s).strftime("%m/%d/%Y %l:%M%P") %></p>
     </div>
