@@ -66,6 +66,50 @@ $(document).on('turbolinks:load', function() {
         var reviewValue = $(star).index() + 1;
         $('#review_rating').val(reviewValue);
     }
+	
+	$('.review-star').on("mouseover", function(){
+		var highestStar = $(this).attr('id').split("-")[1]
+		console.log(highestStar)
+		var i = 1
+		while (i <= highestStar){
+			
+			var thisStarID = "#star-" + i
+			console.log(thisStarID)
+			$(thisStarID).removeClass('fa-star-o').addClass('fa-star');
+			i++
+		}
+		
+		
+	})
+	$('.review-star').on("mouseleave", function(){
+		$('.review-star-notset').removeClass('fa-star').addClass('fa-star-o');	
+	})
+	
+	
+	
+	$('.review-star').on("click", function(){
+		var highestStar = $(this).attr('id').split("-")[1]
+		console.log(highestStar)
+		var i = 1
+		while (i <= 5){
+			var thisStarID = "#star-" + i
+			console.log(thisStarID)
+			if(i <= highestStar){
+				console.log("removing classes")
+				$(thisStarID).removeClass('review-star-notset').addClass('review-star-set');
+				$(thisStarID).removeClass('fa-star-o').addClass('fa-star');
+			}
+			else{
+				$(thisStarID).addClass('review-star-notset').removeClass('freview-star-set');
+				$(thisStarID).removeClass('fa-star').addClass('fa-star-o');
+			}
+			i++
+		}
+		
+		
+	})
+	
+	
 
     /* 
      * animates input's label
