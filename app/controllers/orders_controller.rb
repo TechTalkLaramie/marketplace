@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(params[:order].permit(:appointment_time))
+    @order = Order.new(params[:order].permit([:appointment_time, :duration]))
     @order.service_id = params[:service_id]
     @order.user_id = current_user.id
     @order.save!
