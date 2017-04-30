@@ -3,7 +3,7 @@
 	<div class = "container" id = "container-accountSetup">
 		<div class = "module per100">
 			<h2 class = "margin-bottom">Edit <%= resource_name.to_s.humanize %> Information</h2>
-        
+
 
 			<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put , multipart: true}) do |f| %>
 			  <%= devise_error_messages! %>
@@ -11,7 +11,7 @@
               <div class = "module per100 margin-bottom" id = "button-change-password">
                   <p class = "bold">Change Password</p>
               </div>
-            
+
               <div class = "change-password">
 
                   <div class = "module per100 margin-bottom module-input">
@@ -23,7 +23,7 @@
           			<span class = "floating-label">Password Confirmation</span>
           			<%= f.password_field :password_confirmation, autocomplete: "off", :class=> "medium input-floating-label per100" %>
         			</div>
-            
+
               </div>
 
 			<div class = "module per100 margin-bottom module-input">
@@ -39,7 +39,7 @@
 
 			<div class = "module per100 margin-bottom module-input">
 				<div class = "module per100">Avatar</div>
-				<%= f.file_field :avatar, :class=> "medium input-floating-label per100" %>
+				<%= f.file_field :avatar, :class=> "medium per100" %>
 			</div>
 
 			  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -53,19 +53,8 @@
 				<span class = "floating-label">Location</span>
 				<input class = "medium per100 input-floating-label post-input padding-small" placeholder = "" type = "text" id = "input_editProfileloction">
 				<!-- ADD HIDDEN INPUTES FOR LAT AND LONG BASED ON API RESPONCE-->
-
-	  			<div class = "module per100 margin-bottom module-input">
-	  				<span class = "floating-label">Latitude</span>
-	  				<%= f.text_field :lat, :class=> "medium input-floating-label per100 hidden", :id=>"editProfileHiddenLat" %>
-				</div>
-
-
-	  			<div class = "module per100 margin-bottom module-input">
-	  				<span class = "floating-label">Longitude</span>
-	  				<%= f.text_field :lng, :class=> "medium input-floating-label per100 hidden", :id=>"editProfileHiddenLng"  %>
-				</div>
-
-
+        <%= f.hidden_field :lat, :class=> "medium input-floating-label per100 hidden", :id=>"editProfileHiddenLat" %>
+        <%= f.hidden_field:lng, :class=> "medium input-floating-label per100 hidden", :id=>"editProfileHiddenLng"  %>
 			</div>
 
 
@@ -92,7 +81,7 @@
 
 
 
-                
+
 
 
 			  <div class="actions text-right margin-top per100">
@@ -100,7 +89,7 @@
 			  </div>
 			<% end %>
 		</div>
-        
+
 		<div class = "module per100 margin-top text-center" id = "module-cancelAccount">
 			<p> <%= button_to "Unhappy? Cancel Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "button medium per100"%></p>
 		</div>
