@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         post "accept"
         post "cancel"
         post "complete"
+        post "reject"
       end
     end
   end
