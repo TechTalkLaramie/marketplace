@@ -1,0 +1,39 @@
+#perHourToggle{
+	background-color:#7F00FF;
+	cursor:pointer;
+	color:#ffffff;
+}
+#flatRateToggle{
+	background-color:#7F00FF;
+	cursor:pointer;
+	color:#ffffff;
+}
+#container-newServiceToggle{
+	position:relative;
+	border:thin;
+	border-color:rgba(0,0,0,.6);
+	border-style:solid;
+}
+#module-toggleCover{
+	position:absolute;
+	background-color:rgba(0,0,0,.5);
+	right:0px;
+	cursor:pointer;
+}
+/*Can delete this when I merge*/
+.hidden{
+	display:none;
+}
+#priceInputPerText{
+	position:absolute;
+	right:0;
+}
+.field_with_errors{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width:100%;
+}
