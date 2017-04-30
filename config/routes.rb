@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   resources :services
   resources :profiles, only: [:show]
   resources :services do
-    resources :orders
+    resources :orders do
+      member do
+        post "accept"
+        post "cancel"
+      end
+    end
   end
   resources :profiles, only: [:show] do
 	  collection do

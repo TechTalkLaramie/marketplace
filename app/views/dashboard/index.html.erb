@@ -52,7 +52,7 @@
                                 </p>
                                 <p><%= posting.user.name %></p>
                                 <p><%= link_to "Hire", new_service_order_path(posting) %></p>
-                                <p class="margin-bottom"><%= posting.created_at %></p>
+                                <p class="margin-bottom"><%= posting.created_at.strftime("%m/%d/%y") %></p>
                         <% end %>
 
             </div>
@@ -93,6 +93,7 @@
                   <span class = "panel-cost bold"><%= number_to_currency(order.price) %></span>
                   <p class = "panel-contact">For <%= order.appointment_time.strftime("%m/%d/%Y") %> from <%= order.user.name %></p>
                   <p class = "panel-description padding-top-small"><%= order.description %></p>
+                  <%= button_to "Accept", accept_service_order_path(order.service, order) %>
               </div>
             <%- end -%>
         </div>
