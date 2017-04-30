@@ -37,11 +37,10 @@
 					
 						<div class = "module per50 margin-bottom module-input input-money">
 							<span class = "floating-label">Location</span>
-							<input class = "medium per100 input-floating-label post-input padding-small" type = "text" id = "input_loction">
+							<input class = "medium per100 input-floating-label post-input padding-small" placeholder = "" type = "text" id = "input_loction">
 							<!-- ADD HIDDEN INPUTES FOR LAT AND LONG BASED ON API RESPONCE-->
 							
-							<%= f.text_field :lat, :class=> "medium per100 input-floating-label hidden", :id => "input-hiddenLat" %>
-							<%= f.text_field :lng, :class=> "medium per100 input-floating-label hidden", :id => "input-hiddenLng"%>
+							
 							
 							
 						</div>
@@ -75,6 +74,9 @@
 						<%= f.file_field :avatar, :class=> "margin-top per50", :id => "input-photoFile" %>
 						<br />
 					</div>
+
+					<%= f.text_field :lat, :class=> "medium per100 input-floating-label hidden", :id => "input-hiddenLat" %>
+					<%= f.text_field :lng, :class=> "medium per100 input-floating-label hidden", :id => "input-hiddenLng"%>
 	  			  <div class="actions text-center margin-top">
 	  			    <%= f.submit "Finish!" , :class => "button per50 medium", :id => "wizard-update-profile"%>
 	  			  </div>
