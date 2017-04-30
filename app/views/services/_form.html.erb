@@ -34,7 +34,7 @@
             <div class = "module per20 self-align-middle">
                <div class = "module-container" id ="container-newServiceToggle">
 				   <div class = "module per50 medium padding-small text-center" id = "perHourToggle">per hour</div>
-				   <div class = "module per50 medium padding-small text-center" id="flatRateToggle">flat-rate</div>
+				   <div class = "module per50 medium padding-small text-center" id ="flatRateToggle">flat-rate</div>
 				   <div class = "module per50 medium padding-small" id = "module-toggleCover">&nbsp;</div>
 			   </div>
 
@@ -46,11 +46,20 @@
 	                <span class = "label">Fixed rate?</span>
 	                <%= f.check_box :fixed_rate, :id=>"fixedRateCheckboxNewService" %>
 	            </div>
-
-          <%=
-            button_title = if request.fullpath=="/services/new" then "Create New Service" else "Update Service" end
-            submit_tag button_title, :class => 'button margin-top'
-          %>
+				<div class = "module per100 margin-bottom module-input">
+					<span class = "label">Seeking help?</span>
+					<%= f.check_box :seeking_help, :id=>"seekingHelpCheckboxNewService" %>
+				</div>
+				<div>
+					<input type="date" id="createNewServiceExpirationDate" class = "createAppointmentDateTime">
+					<input type="time" id="createNewServiceExpirationTime" class = "createAppointmentDateTime">
+				</div>
+				<div class = "module per100 margin-bottom" >
+				<%=
+				button_title = if request.fullpath=="/services/new" then "Create New Service" else "Update Service" end
+				submit_tag button_title, :class => 'button margin-top'
+				%>
+				</div>
 
         <%- end -%>
 	</div>

@@ -6,6 +6,8 @@ class Order < ApplicationRecord
   delegate :description, to: :service
   delegate :price, to: :service
 
+  scope :unaccepted_rejected, -> { where(accepted_at: nil).where("rejected_at IS NOT NULL") }
+  scope :unaccepted_awaiting_response, -> { where(accepted_at: nil,rejected_at: nil) }
   scope :unaccepted, -> { where(accepted_at: nil) }
   scope :accepted, -> { where("accepted_at IS NOT NULL") }
 

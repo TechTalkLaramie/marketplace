@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20170430164926) do
     t.datetime "updated_at",                          null: false
     t.boolean  "fixed_rate"
     t.integer  "category_id"
+    t.boolean  "seeking_help"
+    t.datetime "expiration_date"
   end
 
   create_table "users", force: :cascade do |t|
