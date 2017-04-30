@@ -15,6 +15,7 @@
     <!-- FONTS -->
     <script src="https://use.fontawesome.com/ba4ae401ed.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
 
     <!-- STYLES -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -40,25 +41,31 @@
         </header>
     
         <section class = "banner" id = "banner-sidebar">
-            <div class = "container">
+            <div class = "container-extender">
                 <div class = "module per100">
-                    <div class = "close per100">
+                    <div class = "close per100 padding-medium">
                         <i class = "fa fa-close" aria-hidden = "true"></i>
                     </div>
                     
-                    <%- if current_user -%>
-                        <h2 class = "margin-top margin-bottom large"><%= current_user.name %></h2>
-                    <%- end -%>
+                    <div class = "module per100 padding-medium text-center margin-bottom margin-top">
+                        <img class = "image-profile-picture" src = "img/goat picture.jpg">
+                        <p class = "margin-top bold large"><%= current_user.name %></p>
+                        <p class = "margin-top"><%= current_user.about_me %></p>
+                    </div>
                     
-                    <p><%= link_to "Edit Profile", edit_user_registration_path %></p>
-                    <p><%= link_to "Dashboard", dashboard_path %></p>
-                    <p><%= link_to "Post Gig", new_service_path %></p>
-                    <p><a href = "/catalog">Search gigs</a></p>
-                    <p><%= link_to "Review offers", dashboard_path %></p>
-                    
-                    <%- if current_user -%>
-                        <p class = "margin-top"><%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
-                    <%- end -%>
+                    <%= link_to "Dashboard", dashboard_path, :class => 'button per100 module-dashboard-action text-center' %>
+
+                    <%= link_to "View Profile", profile_path(current_user.id), :class => 'button per100 module-dashboard-action text-center' %>
+
+                    <%= link_to "Edit Profile", edit_user_registration_path, :class => 'button per100 module-dashboard-action text-center' %>
+
+                    <%= link_to "Create Service", new_service_path, :class => 'button per100 module-dashboard-action text-center'  %>
+
+                    <div class = "module per100 padding-small module-dashboard-action text-center">
+                        <p>Post Gig For Hire</p>
+                    </div>
+
+                    <%= link_to "Search Gigs", catalog_path, :class => 'button per100 module-dashboard-action text-center'  %>
                 </div>
             </div>
         </section>

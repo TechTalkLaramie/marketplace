@@ -1,11 +1,14 @@
 <section class = "banner">
-    <div class = "container text-center">
-		<div class = "module per100"><h2><%= @service.headline %></h2></div>
+    <div class = "container align-center">
+		<div class = "module per100 margin-bottom">
+            <h2><%= @service.headline %></h2>
+            <h3 class = "margin-bottom">by <%= @service.user.name %><br><%= number_to_currency(@service.price) %>/<%= @service.fixed_rate ? 'job' : 'hour' %></h3>
+            <p><%= @service.description %></p>
+        </div>
 
-		
-		<div class = "module per100"><%= link_to "Hire", new_service_order_path(@service), :class => 'button margin-bottom' %></div>
-		<h4>by <%= @service.user.name %> - <%= number_to_currency(@service.price) %></h4>
-		<%= @service.description %>
+		<div class = "module per100 ">
+            <%= link_to "Hire", new_service_order_path(@service), :class => 'button per30 tab-per50 mob-per80 margin-bottom text-center primary-color' %>
+        </div>
 
 	</div>
 </section>
