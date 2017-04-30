@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   get "/catalog/:id", to: "catalog#show", as: 'show_service'
   resources :services do
     resources :orders do
+      resources :reviews, only: [:new, :create]
       member do
         post "accept"
         post "cancel"
+        post "complete"
       end
     end
   end

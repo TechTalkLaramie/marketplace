@@ -19,4 +19,11 @@ class OrdersController < ApplicationController
     @order.save
     redirect_to "/dashboard"
   end
+
+  def complete
+    @order = Order.find(params[:id])
+    @order.completed_at = Time.now
+    @order.save
+    redirect_to new_service_order_review_path(@order.service, @order)
+  end
 end
