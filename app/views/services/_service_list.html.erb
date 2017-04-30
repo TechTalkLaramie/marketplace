@@ -1,5 +1,5 @@
 <%- show_service_provider ||= false -%>
-<table>
+<!-- <table>
   <style>
     .delete{
       text-decoration: underline;
@@ -12,9 +12,9 @@
     <%- if show_service_provider -%>
       <th>Service Provider</th>
     <%- end -%>
-  </tr>
+  </tr> -->
   <%- service_list.each do |service| -%>
-    <tr>
+    <!-- <tr>
       <td><%= service.headline %></td>
       <td><%= number_to_currency service.price %></td>
       <%- if show_service_provider -%>
@@ -25,6 +25,21 @@
         <%= link_to "Delete", service_path(service), method: :delete %>
       </td>
       <%- end -%>
-    </tr>
+    </tr> -->
+        <div class = "module per100 padding-right-small margin-bottom module-service" id = "service_<%= service.id %>">
+            <p>
+                <%= service.headline %> - <%= number_to_currency service.price %>/<%= service.fixed_rate ? 'job' : 'hr' %>
+                
+                <%- if current_user.id == @user.id -%>
+                <span class = "edit-service padding-left-small">
+                    <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, service_path(service), remote: true, method: :edit %>
+                </span>
+
+                <span class = "delete-service padding-left-small">
+                    <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, service_path(service), data: { confirm: "Are you sure you want to do that?" }, remote: true, method: :delete %>
+                </span>
+                <%- end -%>
+            </p>
+        </div>
   <%- end -%>
-</table>
+<!-- </table> -->
