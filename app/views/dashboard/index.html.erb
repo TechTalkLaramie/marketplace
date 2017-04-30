@@ -27,18 +27,20 @@
                     <h3 class = "margin-bottom">Upcoming gigs and hires</h3>
 
                     <%- current_user.accepted_orders_i_have_or_placed.each do |order| -%>
-                      <div class = "panel-notification <%= order.service.user == current_user ? "hire" : "gig" %>">
+                    <%- if !order.complete? -%>
+                        <div class = "panel-notification <%= order.service.user == current_user ? "hire" : "gig" %>">
                           <p class = "panel-title bold"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
                           <p class = "panel-cost bold"><%= number_to_currency(order.price) %>/<%= order.service.fixed_rate ? 'job' : 'hour' %></p>
                           <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M") %> with <%= link_to order.user.name, profile_path(order.user.id) %></p>
                           <p class = "panel-description padding-top-small"><%= order.description %></p>
-                          <%= button_to "Cancel", cancel_service_order_path(order.service, order), method: :post %>
-                          <%- if order.complete? -%>
-                            Completed
-                          <%- else -%>
-                            <%= button_to "Complete", complete_service_order_path(order.service, order), method: :post %>
-                          <%- end -%>
                       </div>
+                      <div class = "module-make-connection padding-mini text-center margin-bottom module per100">
+                            <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, cancel_service_order_path(order.service, order), method: :post, :class => 'padding-right-small', data: { confirm: "Are you sure you want to do that?" } %>
+                            <%= link_to '<i class="fa fa-check" aria-hidden="true"></i>'.html_safe, complete_service_order_path(order.service, order), method: :post, :class => 'padding-left-small'%>
+                       </div>
+
+                    <%- end -%>
+
                     <%- end -%>
                 </div>
 

@@ -722,9 +722,9 @@ header.banner {
     box-sizing: border-box;
 	box-shadow: 2px 2px 4px 1px #ddd;
     width: 100%;
-    margin-bottom: 10px;
+	margin-top: 10px;
     position: relative;
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
 }
 
 /*.panel-notification:not(.posting) > * {
