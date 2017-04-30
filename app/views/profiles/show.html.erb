@@ -4,7 +4,7 @@
             <h2 class = "margin-bottom"><%= link_to @user.name || @user.email, profile_path(@user.id) %></h2>
             <div class = "module-container">
                 <div class = "module per10">
-                    <img class = "image-profile-picture" src = "img/goat picture.jpg">
+                  <img class = "image-profile-picture" src = "<%= @user.avatar.url(:thumb) %>">
                 </div>
 
                 <div class = "module per90 padding-left-medium">
@@ -24,7 +24,7 @@
         <div class = "module padding-left-medium per50">
             <h3 class = "margin-bottom">Reviews</h3>
             <%- @user.reviews.each do |review| -%>
-            
+
             <div class = "module per100 margin-bottom">
                 <%- $i = 1 -%>
                 <%- $rating = review.rating.to_i + 1 -%>
@@ -32,7 +32,7 @@
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <%- $i+=1 -%>
                 <%- end -%>
-               
+
                <p>On <%= Date.parse(review.created_at.to_s).strftime("%m/%d/%Y") %>, <%= link_to review.from_user.name, profile_path(review.from_user.id) %> said <%= review.description %></p>
               <!-- <p>
                 For <%= review.order.service.headline %> at <%= review.order.appointment_time %>
