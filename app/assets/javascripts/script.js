@@ -14,6 +14,7 @@ $(document).on('turbolinks:load', function() {
         $('.review-star').on('click', reviewStars);
 
         $('.input-floating-label').on('focus', floatLabel);
+		$('.input-floating-label').on('change', floatLabel);
 
         $('#post-input-fixed').on('focus', function(){
             $('#post-input-hour').value('');
