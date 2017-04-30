@@ -1,26 +1,26 @@
 <section class = "banner">
     <div class = "container text-center">
-		
+
 		<form id="catalog-filter">
-		
+
 			<div class = "module per33">
-				Within this many miles: <input name="within" type = "number" placeholder = "10">
+        Within this many miles: <input name="within" type = "number" value="<%= params[:within] %>">
 			</div>
-			
+
 			<!-- div class = "module per33">
 				<input type = "checkbox" value = "for hire">For hire
 				<input type = "checkbox" value = "offers">Seeking work
 			</div -->
-		
+
 			<div class = "module per33">
 				<input type="submit"/>
 			</div>
-		
+
 		</form>
-        
+
         <div class = "module-container">
         <h3 class = "large margin-bottom">Postings</h3>
-        
+
 				<%- @services.all.each do |service| -%>
 
 				<div class = "module per25 tab-per50 servicesOfferedListingModule padding-medium">
