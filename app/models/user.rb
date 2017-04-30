@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :services
   has_many :orders, through: :services
   has_many :orders_i_placed, class_name: 'Order'
+  has_many :reviews
 
   acts_as_mappable
 
