@@ -80,20 +80,20 @@
         <footer class = "banner" id = "banner-footer">
             <div class = "container">
                 <div class = "module per33 padding-medium">
-                    <p>Report</p>
+                    <!--<p>Report</p>
                     <p>Dispute an interaction</p>
                     <p>Terms and Conditions</p>
-                    <p>Privacy Policy</p>
+                    <p>Privacy Policy</p>-->
                 </div>
 
                 <div class = "module per33 padding-medium">
-                    <p>Search Gigs</p>
-                    <p>View Dashboard</p>
+                  <p><%= link_to "Search Gigs", catalog_path %></p>
+                  <p><%= link_to "View Dashboard", dashboard_path %></p>
                 </div>
 
                 <div class = "module per33 padding-medium">
-                    <p>Social Media Icons</p>
-                    <button class = "margin-top per100 primary-color">Contact us</button>
+                  <!--<p>Social Media Icons</p>-->
+                    <p><%= link_to "Contact Us", "mailto:contact@gitch.me" %></p>
                 </div>
 
                 <div class = "module per33 padding-medium">
