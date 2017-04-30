@@ -1,45 +1,17 @@
 <%- show_service_provider ||= false -%>
-<!-- <table>
-  <style>
-    .delete{
-      text-decoration: underline;
-      color:Blue;
-    }
-  </style>
-  <tr>
-    <th>Title</th>
-    <th>Price</th>
-    <%- if show_service_provider -%>
-      <th>Service Provider</th>
-    <%- end -%>
-  </tr> -->
-  <%- service_list.each do |service| -%>
-    <!-- <tr>
-      <td><%= service.headline %></td>
-      <td><%= number_to_currency service.price %></td>
-      <%- if show_service_provider -%>
-        <td><%= link_to service.user.email, profile_path(service.user) %></td>
-      <%- end -%>
-      <%- if service.user == current_user -%>
-      <td class= "delete">
-        <%= link_to "Delete", service_path(service), method: :delete %>
-      </td>
-      <%- end -%>
-    </tr> -->
-        <div class = "module per100 padding-right-small margin-bottom module-service" id = "service_<%= service.id %>">
-            <p>
-                <%= service.headline %> - <%= number_to_currency service.price %>/<%= service.fixed_rate ? 'job' : 'hr' %>
-                
-                <%- if current_user.id == @user.id -%>
-                <span class = "edit-service padding-left-small">
-                    <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, service_path(service), remote: true, method: :edit %>
-                </span>
+<%- service_list.each do |service| -%>
 
-                <span class = "delete-service padding-left-small">
-                    <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, service_path(service), data: { confirm: "Are you sure you want to do that?" }, remote: true, method: :delete %>
-                </span>
-                <%- end -%>
-            </p>
-        </div>
-  <%- end -%>
-<!-- </table> -->
+    <div class = "panel-notification posting" id = "service_<%= service.id %>">
+        <p class = "panel-title bold"><%= service.headline %></p>
+        <span class = "panel-cost bold">$<%= service.price %>/<%= service.fixed_rate ? 'job' : 'hr' %></span>
+        <p class = "panel-contact">Posted at <%= Date.parse(service.created_at.to_s).strftime("%m/%d/%Y %l:%M") %></p>
+    </div>
+    
+    <%- if current_user.id != @user.id -%>
+        <%= link_to "Hire", new_service_order_path(service), :class =>'module-make-connection padding-mini text-center margin-bottom module per100' %>
+    <%- else -%>
+        <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, new_service_order_path(service), :class =>'module-make-connection padding-mini text-center margin-bottom module per100' %>
+    <%- end -%> 
+
+<%- end -%>
+
