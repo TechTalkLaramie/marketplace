@@ -95,7 +95,7 @@ button,
 	cursor: pointer;
 	display: inline-block;
 	width: auto;
-	font-family: "Nunito", sans-serif";
+	font-family: "Nunito", sans-serif;
 	font-size: 1em;
 	box-sizing: border-box;
 }
@@ -144,7 +144,7 @@ select {
 	padding: 15px;
     box-sizing: border-box;
     color: rgba(0,0,0,.6);
-    font-family: "Nunito", sans-serif";
+    font-family: "Nunito", sans-serif;
 	border-radius: 0;
 	-webkit-appearance: none;
 	border: 1px solid #ccc;
