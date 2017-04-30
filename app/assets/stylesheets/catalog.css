@@ -14,3 +14,40 @@
 	width:75px;
 	border-radius:100%;
 }
+
+
+/* Removes the clear button from date inputs */
+.createAppointmentDateTime::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+.createAppointmentDateTime::-webkit-inner-spin-button { 
+    display: none;
+}
+
+/* Always display the drop down caret */
+.createAppointmentDateTime::-webkit-calendar-picker-indicator {
+    color: #000000;
+}
+
+/* A few custom styles for date inputs */
+.createAppointmentDateTime{
+    appearance: none;
+    -webkit-appearance: none;
+    color: #000000;
+    font-size: 18px;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+	font-family: 'Dosis';
+}
+
+.createAppointmentDateTime, focus {
+    color: #000000;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}

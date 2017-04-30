@@ -1,9 +1,37 @@
-Create order appointment for <%= @service.headline %>
+<section class = "banner">
+    <div class = "container">
+		<div class = "module per100 padding-bottom-large">
+			<!--Add a link back to the service link on the headline-->
+			<h3>Create an appointment for: <%= @service.headline %></h3>
+		</div>
+		
+			<%= form_for(@order, url: service_orders_path(@service)) do |f| -%>
+			<div class = "module per100 text-left padding-bottom-small">
+			   Choose an <%= f.label :appointment_time %>
+			</div>
+			
+				<div class = "module per100 text-left">
+					<div class = "module per100">Date:</div>
+					<div class = "module per100">
+						<input type="date" id="createApointmentDate" class = "createAppointmentDateTime">
+					</div>
+				</div>
+			
+				<div class = "module per100ext-left padding-top-medium">
+					<div class = "module per100">
+						Time:
+					</div>
+						<div class = "module per100">
+							<input type="time" id="createApointmentTime"  class = "createAppointmentDateTime" step="60">
+						</div>
+				</div>
 
-<%= form_for(@order, url: service_orders_path(@service)) do |f| -%>
-  <p>
-    <%= f.label :appointment_time %>
-    <%= f.datetime_field :appointment_time %>
-  </p>
-  <%= submit_tag "Place Order" %>
-<%- end -%>
+			<div class = "module per100 text-center hidden">
+			    <%= f.datetime_field :appointment_time, :id=>"formDateTimeFieldNewAppointment" %>
+			</div>
+			<div class = "module per100 text-center padding-top-large">
+			  <%= submit_tag "Place Order", :class=>"button per50 text-center"%>
+		  </div>
+		  <%- end -%>
+	</div>
+</section>

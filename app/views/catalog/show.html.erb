@@ -1,6 +1,11 @@
-<h3><%= @service.headline %></h2>
-<%= link_to "Hire", new_service_order_path(@service), :class => 'button margin-bottom' %>
-<h4>by <%= @service.user.name %> - <%= number_to_currency(@service.price) %></h4>
-<%= @service.description %>
+<section class = "banner">
+    <div class = "container text-center">
+		<div class = "module per100"><h2><%= @service.headline %></h2></div>
 
+		
+		<div class = "module per100"><%= link_to "Hire", new_service_order_path(@service), :class => 'button margin-bottom' %></div>
+		<h4>by <%= @service.user.name %> - <%= number_to_currency(@service.price) %></h4>
+		<%= @service.description %>
 
+	</div>
+</section>
