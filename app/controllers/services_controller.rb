@@ -1,6 +1,10 @@
 class ServicesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+          redirect_to "/catalog"
+  end
+
   def new
     @service = current_user.services.build
   end
