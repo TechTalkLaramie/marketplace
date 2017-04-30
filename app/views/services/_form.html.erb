@@ -8,24 +8,40 @@
                 <%= f.text_field :headline, :class=> 'medium input-floating-label'%>
                 <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
             </div>
-            
+
             <div class = "module per100 margin-bottom module-input">
                 <span class = "floating-label">Description</span>
                 <%= f.text_field :description, :class=> 'medium input-floating-label'%>
                 <span class = "error-message"><%= service.errors.messages[:description].to_sentence %></span>
             </div>
-            
+
             <div class = "module per100 margin-bottom padding-right-small module-input input-money">
+					<div class = "module-container">
                 <span class = "floating-label">Price</span>
                 <%= f.text_field :price, :class => 'medium input-floating-label' %>
-                <span class = "error-message"><%= service.errors.messages[:price].to_sentence %></span>
+		            <div class = "module per10 text-left self-align-middle" id = "priceInputPerText">
+		                per hour
+					</div>
+				</div>
+	            </div>
+
+			<!-- Manually making a toggle switch-->
+            <div class = "module per20 module-input self-align-middle border">
+               <div class = "module-container" id ="container-newServiceToggle">
+				   <div class = "module per50 medium padding-small text-center" id = "perHourToggle">per hour</div>
+				   <div class = "module per50 medium padding-small text-center" id="flatRateToggle">flat-rate</div>
+				   <div class = "module per50 medium padding-small" id = "module-toggleCover">&nbsp;</div>
+			   </div>
+
             </div>
-            
-            <div class = "module per100 margin-bottom module-input">
-                <span class = "label">Fixed rate?</span>
-                <%= f.check_box :fixed_rate %>
-            </div>
-         
+			 <div class = "module per100">
+				 <span class = "error-message"><%= @service.errors.messages[:price].to_sentence %></span>
+			 </div>
+	            <div class = "module per100 margin-bottom module-input hidden">
+	                <span class = "label">Fixed rate?</span>
+	                <%= f.check_box :fixed_rate, :id=>"fixedRateCheckboxNewService" %>
+	            </div>
+
           <%=
             button_title = if request.fullpath=="/services/new" then "Create New Service" else "Update Service" end
             submit_tag button_title, :class => 'button margin-top'
