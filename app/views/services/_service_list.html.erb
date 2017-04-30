@@ -2,7 +2,7 @@
 <%- service_list.each do |service| -%>
 
     <div class = "panel-notification posting service_<%= service.id %>">
-        <p class = "panel-title bold"><%= service.headline %></p>
+	    <p class = "panel-title bold"><%= service.headline %> - <%= service.category.category_name %></p>
         <span class = "panel-cost bold">$<%= service.price %>/<%= service.fixed_rate ? 'job' : 'hr' %></span>
         <p class = "panel-contact">Posted at <%= Date.parse(service.created_at.to_s).strftime("%m/%d/%Y %l:%M") %></p>
     </div>
