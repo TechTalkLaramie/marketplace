@@ -10,7 +10,10 @@
     <%- if current_user.id != @user.id -%>
         <%= link_to "Hire", new_service_order_path(service), :class =>'module-make-connection padding-mini text-center margin-bottom module per100' %>
     <%- else -%>
-        <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, new_service_order_path(service), :class =>'module-make-connection padding-mini text-center margin-bottom module per100' %>
+    <div class = "module-make-connection padding-mini text-center margin-bottom module per100">
+        <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, new_service_order_path(service), :class => 'padding-right-small' %>
+        <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_service_path(service), :class => 'padding-left-small'%>
+    </div>
     <%- end -%> 
 
 <%- end -%>
