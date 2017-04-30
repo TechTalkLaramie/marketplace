@@ -1,3 +1,4 @@
 $(function() {
-  $('#service_<%= @service.id %>').remove()
+  var elements = $('.service_<%= @service.id %>');
+  elements.remove();
 })

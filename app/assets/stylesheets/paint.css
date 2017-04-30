@@ -96,7 +96,8 @@ button,
 	cursor: pointer;
 }
 
-br.style-link-after + a {
+br.style-link-after + a,
+br.style-link-after + a + a{
 	/* This class changes the delete button */
 	text-decoration: underline;
 	color:Blue;

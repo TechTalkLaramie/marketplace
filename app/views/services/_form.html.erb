@@ -1,0 +1,36 @@
+<section class = "banner">
+    <div class = "container">
+        <h2 class = "large margin-bottom">Create a new service</h2>
+
+        <%= form_for service do |f|  -%>
+            <div class = "module per100 margin-bottom module-input">
+                <span class = "floating-label">Headline</span>
+                <%= f.text_field :headline, :class=> 'medium input-floating-label'%>
+                <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
+            </div>
+            
+            <div class = "module per100 margin-bottom module-input">
+                <span class = "floating-label">Description</span>
+                <%= f.text_field :description, :class=> 'medium input-floating-label'%>
+                <span class = "error-message"><%= service.errors.messages[:description].to_sentence %></span>
+            </div>
+            
+            <div class = "module per100 margin-bottom padding-right-small module-input input-money">
+                <span class = "floating-label">Price</span>
+                <%= f.text_field :price, :class => 'medium input-floating-label' %>
+                <span class = "error-message"><%= service.errors.messages[:price].to_sentence %></span>
+            </div>
+            
+            <div class = "module per100 margin-bottom module-input">
+                <span class = "label">Fixed rate?</span>
+                <%= f.check_box :fixed_rate %>
+            </div>
+         
+          <%=
+            button_title = if request.fullpath=="/services/new" then "Create New Service" else "Update Service" end
+            submit_tag button_title, :class => 'button margin-top'
+          %>
+
+        <%- end -%>
+    </div>
+</section>

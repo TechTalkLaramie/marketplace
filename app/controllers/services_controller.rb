@@ -14,9 +14,25 @@ class ServicesController < ApplicationController
       render :new
     end
   end
+  
   def destroy
     @service = Service.find(params[:id])
     @service.destroy
   end
+  
+  def edit
+    @service = Service.find(params[:id])
+  end
 
+  def update
+    @service = Service.find(params[:id])
+     @service.update_attributes(params[:service].permit([:headline, :description, :fixed_rate, :price]))
+
+    if @service.update_attributes(params[:service].permit([:headline, :description, :fixed_rate, :price]))
+      redirect_to '/dashboard'
+    else
+      render :edit
+    end
+  end
+  
 end
