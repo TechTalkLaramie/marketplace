@@ -51,7 +51,7 @@
                     </div>
                     
                     <div class = "module per100 padding-medium text-center margin-bottom margin-top">
-                        <img class = "image-profile-picture" src = "img/goat picture.jpg" style = "width: 100px">
+                        <img class = "image-profile-picture" src = "<%= @user.avatar.url(:thumb) %>" style = "width: 100px">
                         <p class = "margin-top bold large"><%= current_user.name %></p>
                         <p class = "margin-top"><%= current_user.about_me %></p>
                     </div>
@@ -78,25 +78,25 @@
         
         <%- if request.path != '/dashboard' -%>
         <footer class = "banner" id = "banner-footer">
-            <div class = "container">
-                <div class = "module per33 padding-medium">
-                    <!--<p>Report</p>
+            <div class = "container align-center">
+                <!-- <div class = "module per33 padding-medium">
+                    <p>Report</p>
                     <p>Dispute an interaction</p>
                     <p>Terms and Conditions</p>
-                    <p>Privacy Policy</p>-->
-                </div>
+                    <p>Privacy Policy</p>
+                </div> -->
                 
-                <div class = "module per33 padding-medium">
+                <div class = "module per50 padding-medium">
                   <p><%= link_to "Search Gigs", catalog_path %></p>
-                  <p><%= link_to "View Dashboard", dashboard_path %></p>
+                  <%- if current_user -%><p><%= link_to "View Dashboard", dashboard_path %></p><%- end -%>
                 </div>
                 
-                <div class = "module per33 padding-medium">
+                <div class = "module per50 padding-medium">
                   <!--<p>Social Media Icons</p>-->
-                    <p><%= link_to "Contact Us", "mailto:contact@gitch.me" %></p>
+                    <p><%= link_to "Contact Us", "mailto:contact@gitch.me", :class=>'button primary-color per50 text-center' %></p>
                 </div>
                 
-                <div class = "module per33 padding-medium">
+                <div class = "module per100 padding-medium">
                     <p class = "padding-top-large small">&copy; TechTalk Laramie 2017.</p>
                 </div>
             </div>
