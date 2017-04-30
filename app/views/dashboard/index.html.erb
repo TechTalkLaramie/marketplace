@@ -28,11 +28,16 @@
 
                     <%- current_user.accepted_orders_i_have_or_placed.each do |order| -%>
                     <%- if !order.complete? -%>
-                        <div class = "panel-notification <%= order.service.user == current_user ? "hire" : "gig" %>">
-                          <p class = "panel-title bold"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
+                        <div class = "panel-notification <%= order.service.user == current_user ? "gig" : "hire" %>">
+                            <%- if order.service.seeking_help? -%>
+                                <p class = "panel-title bold"><%= link_to order.user.name, profile_path(order.user.id) %> is working for you!</p>
+                            <%- else -%>
+                                <p class = "panel-title bold"><%= link_to order.user.name, profile_path(order.user.id) %> hired you!</p>
+                            <%- end -%>
+                            
+                          <p class = "panel-title bold margin-top"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
                           <p class = "panel-cost bold"><%= number_to_currency(order.price) %>/<%= order.service.fixed_rate ? 'job' : 'hour' %></p>
-                          <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M") %> with <%= link_to order.user.name, profile_path(order.user.id) %></p>
-                          <p class = "panel-description padding-top-small"><%= order.description %></p>
+                          <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M%P") %></p>
                       </div>
                       <div class = "module-make-connection padding-mini text-center margin-bottom module per100">
                             <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, cancel_service_order_path(order.service, order), method: :post, :class => 'padding-right-small', data: { confirm: "Are you sure you want to do that?" } %>
@@ -48,14 +53,21 @@
                     <h3 class = "margin-bottom">Pending Incoming offers</h3>
 
                    <%- current_user.orders.unaccepted_awaiting_response.each do |order| -%>
-                      <div class = "panel-notification gig">
-                          <p class = "panel-title bold"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
+                      <div class = "panel-notification  <%= order.service.seeking_help ? 'hire' : 'gig' =%>">
+                          <%- if order.service.seeking_help? -%>
+                              <p class = "panel-title bold"><%= link_to order.user.name, profile_path(order.user.id) %> wants to work for you!</p>
+                          <%- else -%>
+                              <p class = "panel-title bold"><%= link_to order.user.name, profile_path(order.user.id) %> wants to hire you!</p>
+                          <%- end -%>
+                          <p class = "panel-title bold margin-top"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
                           <p class = "panel-cost bold"><%= number_to_currency(order.price) %>/<%= order.service.fixed_rate ? 'job' : 'hour' %></p>
-                          <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M") %> with <%= link_to order.user.name, profile_path(order.user.id) %></p>
-                          <p class = "panel-description padding-top-small"><%= order.description %></p>
-                          <%= button_to "Accept", accept_service_order_path(order.service, order), method: :post %>
-                          <%= button_to "Reject", reject_service_order_path(order.service, order), method: :post %>
+                          <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M%P") %></p>
                       </div>
+                      
+                      <div class = "module-make-connection padding-mini text-center margin-bottom module per100">
+                            <%= link_to 'Accept'.html_safe, accept_service_order_path(order.service, order), method: :post, :class => 'padding-right-small' %>
+                            <%= link_to 'Reject'.html_safe, reject_service_order_path(order.service, order), method: :post, :class => 'padding-left-small'%>
+                       </div>
                     <%- end -%>
                 </div>
 
@@ -63,12 +75,22 @@
                     <h3 class = "margin-bottom">Pending Outgoing offers</h3>
 
                     <%- current_user.orders_i_placed.unaccepted.each do |order| -%>
-                      <div class = "panel-notification hire">
-                          <p class = "panel-title bold"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
+                      <div class = "panel-notification <%= order.service.seeking_help ? 'hire' : 'gig' =%>">
+                          <%- if order.service.seeking_help? -%>
+                              <p class = "panel-title bold">You want to work for <%= link_to order.user.name, profile_path(order.user.id) %>!</p>
+                          <%- else -%>
+                              <p class = "panel-title bold">You want to hire <%= link_to order.user.name, profile_path(order.user.id) %>!</p>
+                          <%- end -%>
+                          <p class = "panel-title bold margin-top"><%= link_to order.headline.titleize, show_service_path(order.service) %></p>
                           <p class = "panel-cost bold"><%= number_to_currency(order.price) %>/<%= order.service.fixed_rate ? 'job' : 'hour' %></p>
-                          <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M") %> with <%= link_to order.service.user.name, profile_path(order.service.user.id) %></p>
-                          <p class = "panel-description padding-top-small"><%= order.description %></p>
+                          <p class = "panel-contact"><%= order.appointment_time.strftime("%_-m/%d/%Y %l:%M%P") %> </p>
                       </div>
+                      
+                      <div class = "module-make-connection padding-mini text-center margin-bottom module per100">
+                            <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, cancel_service_order_path(order.service, order), method: :post,  data: { confirm: "Are you sure you want to do that?" } %>
+                           
+                       </div>
+
                     <%- end -%>
                 </div>
             </div>
