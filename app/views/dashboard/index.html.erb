@@ -7,13 +7,12 @@
                     <p class = "margin-top bold large"><%= current_user.name %></p>
                     <p class = "margin-top"><%= current_user.about_me %></p>
                 </div>
-
                 
-                <%= button_to "View Profile", profile_path(current_user.id), :class => 'button per100 module-dashboard-action text-left' %>
+                <%= link_to "View Profile", profile_path(current_user.id), :class => 'button per100 module-dashboard-action text-left' %>
                 
-                <%= button_to "Edit Profile", edit_user_registration_path, :class => 'button per100 module-dashboard-action text-left' %>
+                <%= link_to "Edit Profile", edit_user_registration_path, :class => 'button per100 module-dashboard-action text-left' %>
                 
-                <%= button_to "Create Service", new_service_path, :class => 'button per100 module-dashboard-action text-left'  %>
+                <%= link_to "Create Service", new_service_path, :class => 'button per100 module-dashboard-action text-left'  %>
         
                 <div class = "module per100 padding-small module-dashboard-action">
                     <p>Post Gig</p>
