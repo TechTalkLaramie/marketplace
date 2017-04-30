@@ -4,7 +4,7 @@
 		<div class = "module per100">
 			<h2 class = "margin-bottom">Edit <%= resource_name.to_s.humanize %> Information</h2>
 
-			<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put , multipart: true}) do |f| %>
 			  <%= devise_error_messages! %>
 
 
@@ -13,13 +13,17 @@
 				<span class = "floating-label">Full Name</span>
 				<%= f.text_field :name, :class=> "medium input-floating-label per100" %>
 			</div>
-			
-			
+
+
 			<div class = "module per100 margin-bottom module-input">
 				<span class = "floating-label">E-mail Address</span>
 				<%= f.email_field :email, :class=> "medium input-floating-label per100" %>
 			</div>
 
+			<div class = "module per100 margin-bottom module-input">
+				<span class = "floating-label">Avatar</span>
+				<%= f.file_field :avatar, :class=> "medium input-floating-label per100" %>
+			</div>
 
 			  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 			    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -29,19 +33,19 @@
   				<span class = "floating-label">Latitude</span>
   				<%= f.text_field :lat, :class=> "medium input-floating-label per100" %>
 			</div>
-			
-			
+
+
   			<div class = "module per100 margin-bottom module-input">
   				<span class = "floating-label">Longitude</span>
   				<%= f.text_field :lng, :class=> "medium input-floating-label per100" %>
 			</div>
-			
-			
+
+
   			<div class = "module per100 margin-bottom module-input">
   				<span class = "floating-label">Phone Number</span>
   				<%= f.telephone_field :phone, :class=> "medium input-floating-label per100" %>
 			</div>
-			
+
   			<div class = "module per100 margin-bottom module-input">
   				<span class = "floating-label">About Me</span>
   				<%= f.text_area :about_me, :id => "about-me-text", :class=> "medium input-floating-label per100" %>
@@ -51,12 +55,12 @@
 			  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 			    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 			  <% end %>
-			  
-			  
-			  
-			  
-			  
-			  
+
+
+
+
+
+
     		<div class = "module per100 margin-bottom module-input">
     			<span class = "floating-label">Password <i>(leave blank if you don't want to change it)</i></span>
     			<%= f.password_field :password, autocomplete: "off" , :class=> "medium input-floating-label per100"%>
@@ -65,15 +69,15 @@
 			      <em><%= @minimum_password_length %> characters minimum</em>
 			    <% end %>
   			</div>
-			  
-			  
-			  
-			  
+
+
+
+
     		<div class = "module per100 margin-bottom module-input">
     			<span class = "floating-label">Password Confirmation</span>
     			<%= f.password_field :password_confirmation, autocomplete: "off", :class=> "medium input-floating-label per100" %>
   			</div>
-			
+
     		<div class = "module per100 margin-bottom module-input">
     			<span class = "floating-label">Current Password <i>(we need your current password to confirm your changes)</i></span>
     			<%= f.password_field :current_password, autocomplete: "off", :class=> "medium input-floating-label per100" %>
@@ -87,7 +91,7 @@
 			<% end %>
 		</div>
 		<div class = "module per100 margin-top text-center" id = "module-cancelAccount">
-			
+
 			<h3>Unhappy?</h3>
 
 			<p> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "button medium"%></p>

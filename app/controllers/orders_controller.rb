@@ -28,7 +28,9 @@ class OrdersController < ApplicationController
   end
   
   def cancel
+    # Technically, we should not lose the accepted information here, maybe this can be solved by audit-logs
     @order = Order.find(params[:id])
+    @order.accepted_at = nil
     @order.cancelled_at = Time.now
     @order.save
     redirect_to "/dashboard"

@@ -45,7 +45,7 @@
                 <div class = "module per33 tab-per100 padding-medium">
                     <h3 class = "margin-bottom">Pending Incoming offers</h3>
 
-                    <%- current_user.orders.unaccepted.each do |order| -%>
+                    <%- current_user.orders.unaccepted_awaiting_response.each do |order| -%>
                       <div class = "panel-notification offer">
                           <p class = "panel-title bold"><%= order.headline %></p>
                           <span class = "panel-cost bold"><%= number_to_currency(order.price) %></span>
