@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/dashboard", to: "dashboard#index"
+  get "/dashboard", to: "dashboard#index", as: 'user_root'
   get "/catalog", to:"catalog#index"
   get "/catalog/:id", to: "catalog#show", as: 'show_service'
   resources :services do

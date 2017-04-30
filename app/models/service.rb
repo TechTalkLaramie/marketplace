@@ -1,6 +1,6 @@
 class Service < ApplicationRecord
   validates :headline, presence: true
-  validates :price, presence: true
+  validates :price, numericality: true
 
   belongs_to :user
   has_many :orders
