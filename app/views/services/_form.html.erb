@@ -27,9 +27,11 @@
                 <div class = "module per80 module-input input-money">
     				<div class = "module-container">
                		 	<span class = "floating-label">Price</span>
-                		<%= f.text_field :price, :class => 'medium per100 input-floating-label' %>
+
+				<%= f.text_field :price, :class => 'medium per100 input-floating-label', :value =>number_with_precision(f.object.price, precision: 2) %>
     	            	<div class = "module per10 mob-per30 padding-right-small text-right self-align-middle" id = "priceInputPerText">
     	               	 /hour
+
     					</div>
     				</div>
                 </div>
