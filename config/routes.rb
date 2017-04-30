@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/dashboard", to: "dashboard#index"
   resources :services do
-    resources :orders
+    resources :orders do
+      member do
+        post "accept"
+        post "cancel"
+      end
+    end
   end
   resources :profiles, only: [:show] do
 	  collection do
