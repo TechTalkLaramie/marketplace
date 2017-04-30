@@ -1,16 +1,32 @@
-<h3>Gig Catalog</h3>
+<section class = "banner">
+    <div class = "container text-center">
+        <h3 class = "large margin-bottom">Services Being Offered</h3>
+				<%- Service.all.each do |service| -%>
+				<div module >
+			
+				<div class = "module per33 catalogHeader bold large margin-bottom">
+					Gig Headline
+				</div>
+				<div class = "module per33 catalogHeader bold large  margin-bottom">
+					Gig Provider
+				</div>
+				<div class = "module per33 catalogHeader bold large margin-bottom">
+					Gig Price
+				</div>
 
-<table>
-	<tr>
-		<th>Gig Headline</th>
-		<th>Gig Provider</th>
-		<th>Gig Price</th>
-	</tr>
-	<%- Service.all.each do |service| -%>
-		<tr>
-		<td><%= link_to service.headline, show_service_path(service) %></td>
-		<td><%= service.user.name %></td>
-		<td><%= number_to_currency(service.price) %></td>
-	</tr>
-	<%- end -%>
-</table>
+
+			<%- Service.all.each do |service| -%>
+				<div class = "module per33 padding-bottom-small">
+					<%= link_to service.headline, show_service_path(service) %>
+				</div>
+				<div class = "module per33 padding-bottom-small">
+					<%= service.user.name %>
+				</div>
+				<div class = "module per33 padding-bottom-small">
+					<%= number_to_currency(service.price) %>
+				</div>
+
+			<%- end -%>
+		</div>
+</section>
+

@@ -3,30 +3,31 @@
         <h2 class = "large margin-bottom">Create a new service</h2>
 
         <%= form_for service do |f|  -%>
+		<div class = "module-container">
             <div class = "module per100 margin-bottom module-input">
                 <span class = "floating-label">Headline</span>
-                <%= f.text_field :headline, :class=> 'medium input-floating-label'%>
+                <%= f.text_field :headline, :class=> 'medium per100 input-floating-label'%>
                 <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
             </div>
 
             <div class = "module per100 margin-bottom module-input">
                 <span class = "floating-label">Description</span>
-                <%= f.text_field :description, :class=> 'medium input-floating-label'%>
+                <%= f.text_field :description, :class=> 'medium per100 input-floating-label'%>
                 <span class = "error-message"><%= service.errors.messages[:description].to_sentence %></span>
             </div>
 
-            <div class = "module per100 margin-bottom padding-right-small module-input input-money">
+            <div class = "module per80 module-input input-money">
 					<div class = "module-container">
-                <span class = "floating-label">Price</span>
-                <%= f.text_field :price, :class => 'medium input-floating-label' %>
-		            <div class = "module per10 text-left self-align-middle" id = "priceInputPerText">
-		                per hour
+               		 	<span class = "floating-label">Price</span>
+                		<%= f.text_field :price, :class => 'medium per100 input-floating-label' %>
+		            	<div class = "module per10 text-left self-align-middle" id = "priceInputPerText">
+		               	 per hour
+						</div>
 					</div>
-				</div>
 	            </div>
 
 			<!-- Manually making a toggle switch-->
-            <div class = "module per20 module-input self-align-middle border">
+            <div class = "module per20 self-align-middle">
                <div class = "module-container" id ="container-newServiceToggle">
 				   <div class = "module per50 medium padding-small text-center" id = "perHourToggle">per hour</div>
 				   <div class = "module per50 medium padding-small text-center" id="flatRateToggle">flat-rate</div>
@@ -48,5 +49,6 @@
           %>
 
         <%- end -%>
+	</div>
     </div>
 </section>
