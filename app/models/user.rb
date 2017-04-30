@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :services
   has_many :orders, through: :services
+  has_many :orders_i_placed, class_name: 'Order'
 
   acts_as_mappable
 
