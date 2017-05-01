@@ -11,7 +11,6 @@ class ServicesController < ApplicationController
 
   def create
     @service = current_user.services.build(params[:service].permit([:headline, :description, :fixed_rate, :price, :category_id, :seeking_help, :expiration_date]))
-
     if @service.save
       redirect_to "/profiles/#{current_user.id}"
     else
@@ -26,6 +25,7 @@ class ServicesController < ApplicationController
   
   def edit
     @service = Service.find(params[:id])
+    params[:seeking_help] ||= @service.seeking_help.to_s
   end
 
   def update

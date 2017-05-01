@@ -62,9 +62,9 @@
 
                     <%= link_to "Edit Profile", edit_user_registration_path, :class => 'button per100 module-dashboard-action text-center' %>
 
-                    <%= link_to "Create Service", new_service_path, :class => 'button per100 module-dashboard-action text-center'  %>
+                    <%= link_to "Create Service", new_service_path(:seeking_help=>'false'), :class => 'button per100 module-dashboard-action text-center'  %>
 
-                    <%= link_to "Post Gig For Hire", new_service_path(:gigtype=>'hire'), :class => 'button per100 module-dashboard-action text-center'  %>
+                    <%= link_to "Post Gig For Hire", new_service_path(:seeking_help=>'true'), :class => 'button per100 module-dashboard-action text-center'  %>
 
                     <%= link_to "Search Gigs", catalog_path, :class => 'button per100 module-dashboard-action text-center'  %>
 

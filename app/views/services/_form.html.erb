@@ -1,6 +1,9 @@
+<%
+  require_dependency 'lib/add_boolean_conversion_to_strings.rb'
+%>
 <section class = "banner">
     <div class = "container">
-        <h2 class = "large margin-bottom"><%= params[:gigtype] == 'hire' ? 'Post a Job for Hire' : 'Offer a Service'%></h2>
+        <h2 class = "large margin-bottom">Create a posting</h2>
 
         <%= form_for service do |f|  -%>
 
@@ -57,7 +60,7 @@
 
             <div class = "module per100 margin-top margin-bottom module-input" id = "seeking-help">
             	<span class = "label">Seeking help?</span>
-            	<%= f.check_box :seeking_help, :id=>"seekingHelpCheckboxNewService" %>
+            	<%= f.check_box :seeking_help, :id=>"seekingHelpCheckboxNewService", :checked=>params[:seeking_help].to_b %>
             </div>
 
             <div>
