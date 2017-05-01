@@ -4,7 +4,7 @@
 
         <%= form_for service do |f|  -%>
 
-    		<div class = "module-container">
+        <div class = "module-container">
                 <div class = "module per100 margin-bottom module-input">
                     <span class = "floating-label">Headline</span>
                     <%= f.text_field :headline, :class=> 'medium per100 input-floating-label'%>
@@ -13,9 +13,9 @@
 
                 <div class = "module per100 margin-bottom module-input">
                     <span class = "floating-label">Category</span>
-                   	    <%= f.select("category_id",Category.order("category_name ASC").all.collect {|c| [c.category_name, c.id]} , {},{class:"per100"})%>
+                        <%= f.select("category_id",Category.order("category_name ASC").all.collect {|c| [c.category_name, c.id]} , {},{class:"per100"})%>
                     <span class = "error-message"><%= service.errors.messages[:headline].to_sentence %></span>
-    	        </div>
+                </div>
 
                 <div class = "module per100 margin-bottom module-input">
                     <span class = "floating-label">Description</span>
@@ -53,7 +53,7 @@
                     <span class = "label">Fixed rate?</span>
                     <%= f.check_box :fixed_rate, :id=>"fixedRateCheckboxNewService" %>
                 </div>
-            </div>
+        </div>
 
             <div class = "module per100 margin-top margin-bottom module-input" id = "seeking-help">
             	<span class = "label">Seeking help?</span>
@@ -77,7 +77,7 @@
 				<div class = "module per100 margin-bottom" >
 
 				<%=
-				button_title = if request.fullpath=="/services/new" then "Create New Service" else "Update Service" end
+				button_title = if request.path=="/services/new" then "Create New Service" else "Update Service" end
 				submit_tag button_title, :class => 'button margin-top'
 				%>
 			</div>
