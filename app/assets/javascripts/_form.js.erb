@@ -1,0 +1,29 @@
+$(document).ready(set_up);
+
+function set_up() {
+	
+	var seeking_help_checkbox = $("input#seekingHelpCheckboxNewService");
+	
+	var form_outcome = (window.location.pathname.endsWith("edit"))?
+		"Update" : "Create New";
+	
+	seeking_help_checkbox.change( function(e){
+	// Here, we watch to see whether the user is trying to request a service or
+	// post a service. If they change their mind, we update the title-text and
+	// the text of the submit-button accordingly
+		var elements = $("h2.posting-title").add("input[type='submit'].posting-title");
+		console.log(elements.length);
+		var text;
+		if (this.checked) {
+			text = `${form_outcome} Request`;
+			elements.text(text);
+			elements.val(text);
+		} else {
+			text = `${form_outcome} Service`;
+			elements.text(text);
+			elements.val(text);
+		}
+	} );
+	seeking_help_checkbox.change(); // Force update right away.
+	
+} // set_up() OUT

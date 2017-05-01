@@ -1,6 +1,6 @@
 <section class = "banner">
     <div class = "container">
-        <h2 class = "large margin-bottom">Create a posting</h2>
+        <h2 class = "large margin-bottom posting-title">Create a posting</h2>
 
         <%= form_for service do |f|  -%>
 
@@ -57,7 +57,7 @@
 
             <div class = "module per100 margin-top margin-bottom module-input" id = "seeking-help">
             	<span class = "label">Seeking help?</span>
-            	<%= f.check_box :seeking_help, :id=>"seekingHelpCheckboxNewService", :checked=>params[:seeking_help].to_b %>
+            	<%= f.check_box :seeking_help, :id=>"seekingHelpCheckboxNewService", :checked=>params[:seeking_help].to_b, :title => "Check this if the above describes something you're LOOKING FOR, uncheck if you're OFFERING." %>
             </div>
 
             <div>
@@ -77,8 +77,8 @@
 				<div class = "module per100 margin-bottom" >
 
 				<%=
-				button_title = if request.path=="/services/new" then "Create New Service" else "Update Service" end
-				submit_tag button_title, :class => 'button margin-top'
+				button_title = if request.path=="/services/new" then "Create/Update Posting" else "Update Posting" end
+				submit_tag button_title, :class => 'button margin-top posting-title'
 				%>
 			</div>
         <%- end -%>
